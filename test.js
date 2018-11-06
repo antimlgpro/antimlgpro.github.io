@@ -6,7 +6,7 @@ var multi = 5;
 //player stuff
 var items = [];
 var clicks = 0;
-var autoclickerCost = 10;
+var clickerCost = 10;
 
 function clickbtn() {
     addclick();
@@ -24,8 +24,8 @@ function autoclick() {
 
 function buyItem(item, amount) {
     if(numclicks >= autoclickerCost) {
-        numclicks = numclicks - autoclickerCost;
-        autoclickerCost = autoclickerCost + 50;
+        numclicks = numclicks - clickerCost;
+        clickerCost = clickerCost =+ 50;
         if(item == "autoclicker") {
             items.push(item);
             item = "";
@@ -63,7 +63,7 @@ function gameLoop() {
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
-        document.getElementById("cost").innerHTML = "AutoClicker cost: " + autoclickerCost;
+        document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
     
 }
