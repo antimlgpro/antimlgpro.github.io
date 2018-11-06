@@ -23,7 +23,7 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-    if(numclicks => 100) {
+    if(numclicks => clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost =+ 20;
         if(item == "autoclicker") {
