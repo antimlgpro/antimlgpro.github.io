@@ -63,6 +63,7 @@ function gameLoop() {
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
+        document.getElementById("cost").innerHTML = "AutoClicker cost: " + autoclickerCost;
     },10);
     
 }
