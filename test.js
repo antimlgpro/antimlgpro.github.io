@@ -1,5 +1,5 @@
 var numclicks = 0;
-var delay = 500;
+var delay = 1000;
 var multi = 5;
 
 
