@@ -6,7 +6,7 @@ var multi = 5;
 //player stuff
 var items = [];
 var clicks = 0;
-var autoclickerCost = 100;
+var autoclickerCost = 10;
 
 function clickbtn() {
     addclick();
