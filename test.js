@@ -6,6 +6,7 @@ var multi = 5;
 //player stuff
 var items = [];
 var clicks = 0;
+var autoclickerCost = 100;
 
 function clickbtn() {
     addclick();
@@ -22,8 +23,9 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-    if(numclicks >= 100) {
-        numclicks = numclicks - 100;
+    if(numclicks >= autoclickerCost) {
+        numclicks = numclicks - autoclickerCost;
+        autoclicker = autoclicker + 50;
         if(item == "autoclicker") {
             items.push(item);
             item = "";
