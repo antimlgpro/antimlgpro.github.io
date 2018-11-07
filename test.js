@@ -73,4 +73,6 @@ function gameLoop() {
     
 }
 
+console.log("LOADED");
+
 window.onload = gameLoop;
