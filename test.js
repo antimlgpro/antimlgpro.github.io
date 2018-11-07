@@ -54,7 +54,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
-    console.log("version: 2.0.19");
+    console.log("version: 2.0.20");
     loading();
     window.setInterval(function(){
     items.forEach(function(value){
