@@ -29,7 +29,8 @@ function autoclick() {
 function buyItem(item, amount) {
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
-        clickerCost = clickerCost * 1.02;
+        clickerCost = clickerCost * 1.5;
+        clickerCost.toFixed(0);
         if(item == "autoclicker") {
             items.push(item);
             item = "";
@@ -60,6 +61,7 @@ function gameLoop() {
             clicks++;
             autoclick();
             delay = delay - multi;
+            delay.toFixed(0);
             }
         }
         
@@ -82,6 +84,9 @@ console.log("LOADED");
 window.onload = gameLoop;
 
 function saving() {
-    document.cookie = "clicks=" + numclicks + ";autoclickers=" + clicks + ";delay=" + delay + ";cost" + clickerCost + ";";
-    console.log("clicks=" + numclicks + ";autoclickers=" + clicks + ";delay=" + delay + ";cost" + clickerCost + ";");
+    document.cookie = "clicks=" + numclicks";
+    document.cookie = "autoclickers=" + clicks";
+    document.cookie = "delay=" + delay";
+    document.cookie = "cost=" + clickerCost";
+    console.log("done saving");
 }
