@@ -12,6 +12,7 @@ var clickerCost = 200;
 
 //saving
 
+
 function clickbtn() {
     addclick();
 }
@@ -88,7 +89,6 @@ window.onload = gameLoop;
 
 function saving() {
     document.cookie = "clicks=" + numclicks;
-    document.cookie = "autoclickers=" + items;
     document.cookie = "delay=" + delay;
     document.cookie = "cost=" + clickerCost;
     console.log("done saving");
@@ -96,12 +96,8 @@ function saving() {
 
 function loading() {
     numclicks = getCookie("clicks");
-    items.push(getCookie("autoclickers"));
     delay = getCookie("delay");
     clickerCost = getCookie("cost");
-    if(clicks = "undefined") {
-    clicks = 0;
-    }
     console.log("done loading save");
 }
 
