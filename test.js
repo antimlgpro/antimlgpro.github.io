@@ -99,6 +99,9 @@ function loading() {
     clicks = getCookie("autoclickers");
     delay = getCookie("delay");
     clickerCost = getCookie("cost");
+    if(clicks = "undefined") {
+    clicks = 0;
+    }
     console.log("done loading save");
 }
 
