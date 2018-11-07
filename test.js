@@ -94,10 +94,10 @@ function saving() {
 }
 
 function loading() {
-    numclicks = getCookie(clicks);
-    clicks = getCookie(autoclicker);
-    delay = getCookie(delay);
-    clickerCost = getCookie(cost);
+    numclicks = getCookie("clicks");
+    clicks = getCookie("autoclicker");
+    delay = getCookie("delay");
+    clickerCost = getCookie("cost");
 }
 
 function getCookie(name) {
