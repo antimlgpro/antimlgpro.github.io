@@ -82,5 +82,5 @@ console.log("LOADED");
 window.onload = gameLoop;
 
 function saving() {
-    document.cookie = "clicks=" + numclicks + ";autoclickers=" + clicks + ";delay=" + delay + ";cost" + clickerCost;
+    document.cookie = "clicks=" + numclicks + ";autoclickers=" + clicks + ";delay=" + delay + ";cost" + clickerCost + ";";
 }
