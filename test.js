@@ -88,7 +88,7 @@ window.onload = gameLoop;
 
 function saving() {
     document.cookie = "clicks=" + numclicks;
-    document.cookie = "autoclickers=" + clicks;
+    document.cookie = "autoclickers=" + items;
     document.cookie = "delay=" + delay;
     document.cookie = "cost=" + clickerCost;
     console.log("done saving");
@@ -96,7 +96,7 @@ function saving() {
 
 function loading() {
     numclicks = getCookie("clicks");
-    clicks = getCookie("autoclickers");
+    items.push(getCookie("autoclickers"));
     delay = getCookie("delay");
     clickerCost = getCookie("cost");
     if(clicks = "undefined") {
