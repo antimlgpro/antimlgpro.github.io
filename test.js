@@ -70,12 +70,14 @@ function gameLoop() {
         if(delay <= delayMax) {
             delay = 0;
         }
-        saving();
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
+    window.setInterval(function() {
+    saving();
+    }, 10000)
     
 }
 
