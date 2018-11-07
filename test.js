@@ -92,3 +92,16 @@ function saving() {
     document.cookie = "cost=" + clickerCost;
     console.log("done saving");
 }
+
+function loading() {
+    numclicks = getCookie(clicks);
+    clicks = getCookie(autoclicker);
+    delay = getCookie(delay);
+    clickerCost = getCookie(cost);
+}
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
