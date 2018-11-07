@@ -60,6 +60,9 @@ function gameLoop() {
         
         
     });
+        if(delay =< 0) {
+            delay = 0;
+        }
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
