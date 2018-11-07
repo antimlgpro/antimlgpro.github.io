@@ -53,7 +53,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
-    console.log("version: 2.0.13");
+    console.log("version: 2.0.14");
     loading();
     window.setInterval(function(){
     items.forEach(function(value){
@@ -99,6 +99,7 @@ function loading() {
     clicks = getCookie("autoclickers");
     delay = getCookie("delay");
     clickerCost = getCookie("cost");
+    console.log("done loading save");
 }
 
 function getCookie(name) {
