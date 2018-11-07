@@ -1,6 +1,6 @@
 var numclicks = 0;
 var delay = 1000;
-var multi = 5;
+var multi = 0.2;
 var delayMax = 0;
 
 
@@ -49,7 +49,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
-    console.log("version: 2.0.5");
+    console.log("version: 2.0.6");
     window.setInterval(function(){
     items.forEach(function(value){
         if(value == "autoclicker") {
