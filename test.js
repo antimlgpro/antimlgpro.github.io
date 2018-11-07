@@ -9,6 +9,10 @@ var items = [];
 var clicks = 0;
 var clickerCost = 200;
 
+
+//saving
+var cookie = document.cookie;
+
 function clickbtn() {
     addclick();
 }
@@ -76,3 +80,7 @@ function gameLoop() {
 console.log("LOADED");
 
 window.onload = gameLoop;
+
+function saving() {
+    document.cookie = numclicks + ";" + clicks + ";" + delay + ";" + clickerCost + ";";
+}
