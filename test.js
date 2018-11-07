@@ -54,7 +54,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
-    console.log("version: 2.0.16");
+    console.log("version: 2.0.17");
     loading();
     window.setInterval(function(){
     items.forEach(function(value){
@@ -72,7 +72,8 @@ function gameLoop() {
         if(delay <= delayMax) {
             delay = 0;
         }
-        document.getElementById("clicks").innerHTML = "Clicks: " + numclicks.toFixed(0);
+        numclicks.toFixed(0);
+        document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
