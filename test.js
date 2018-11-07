@@ -62,7 +62,7 @@ function gameLoop() {
         
         
     });
-        if(delayMax => delay) {
+        if(delay <= delayMax) {
             delay = 0;
         }
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
