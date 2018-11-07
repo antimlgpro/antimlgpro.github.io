@@ -106,3 +106,12 @@ function getCookie(name) {
   var parts = value.split("; " + name + "=");
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
+
+function reset() {
+    document.cookie = "clicks=0";
+    document.cookie = "delay=1000";
+    document.cookie = "cost=200";
+    clicks = 0;
+    items = [];
+    loading();
+}
