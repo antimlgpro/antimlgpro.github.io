@@ -1,6 +1,6 @@
 var numclicks = 0;
 var delay = 1000;
-var multi = 0.2;
+var multi = 1;
 var delayMax = 0;
 
 
@@ -26,7 +26,7 @@ function autoclick() {
 function buyItem(item, amount) {
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
-        clickerCost = clickerCost * 2.64;
+        clickerCost = clickerCost * 1.02;
         if(item == "autoclicker") {
             items.push(item);
             item = "";
