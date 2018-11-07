@@ -11,7 +11,6 @@ var clickerCost = 200;
 
 
 //saving
-var cookie = document.cookie;
 
 function clickbtn() {
     addclick();
