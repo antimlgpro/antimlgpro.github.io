@@ -7,7 +7,7 @@ var delayMax = 0;
 //player stuff
 var items = [];
 var clicks = 0;
-var clickerCost = 10;
+var clickerCost = 200;
 
 function clickbtn() {
     addclick();
@@ -26,7 +26,7 @@ function autoclick() {
 function buyItem(item, amount) {
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
-        clickerCost = clickerCost =+ 20;
+        clickerCost = clickerCost * 2.64;
         if(item == "autoclicker") {
             items.push(item);
             item = "";
