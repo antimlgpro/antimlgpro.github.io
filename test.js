@@ -1,6 +1,7 @@
 var numclicks = 0;
 var delay = 1000;
 var multi = 5;
+var delayMax = 0;
 
 
 //player stuff
@@ -60,7 +61,7 @@ function gameLoop() {
         
         
     });
-        if(delay <= 0) {
+        if(delayMax => delay) {
             delay = 0;
         }
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
