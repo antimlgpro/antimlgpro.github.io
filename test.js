@@ -49,6 +49,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
+    console.log("version: 2.0.4");
     window.setInterval(function(){
     items.forEach(function(value){
         if(value == "autoclicker") {
