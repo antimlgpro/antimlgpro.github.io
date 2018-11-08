@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.233";
+var version = "2.0.24";
 
 
 //player stuff
@@ -19,7 +19,8 @@ function clickbtn() {
 }
 
 function addclick(amount) {
-    numclicks = numclicks + parseInt(amount, 10);
+    console.log(amount + ":" + numclicks);
+    numclicks = numclicks + Number(amount);
 }
 
 function autoclick() {
