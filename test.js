@@ -3,7 +3,7 @@ var delay = 1000;
 var multi = 1;
 var delayMax = 0;
 var cps = 0;
-var version = "2.0.27";
+var version = "2.0.3";
 
 
 //player stuff
@@ -117,13 +117,14 @@ function gameLoop() {
         document.getElementById("cps").innerHTML = "Clicks per second: " + cps;
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
-        document.getElementById("pc").innerHTML = "Autoclickers: " + pc;
+        document.getElementById("pc").innerHTML = "Professional clickers: " + pc;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
+        document.getElementById("pcCost").innerHTML = "Professional clicker cost: " + pcCost;
     },10);
     window.setInterval(function() {
     saving();
-    }, 10000)
+    }, 10000);
     
 }
 
