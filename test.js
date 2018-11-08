@@ -3,7 +3,7 @@ var delay = 1000;
 var multi = 1;
 var delayMax = 0;
 var cps = 0;
-var version = "2.0.2644";
+var version = "2.0.27";
 
 
 //player stuff
@@ -135,9 +135,9 @@ function reset() {
 
 function cpsCalc(itemsA) {
     var x = itemsA.length;
-    var y = 1000;
+    var y = 0;
     itemsA.forEach(function() {
-        y = y + 1000;
+        y = y + 1;
     });
     return y;
 }
