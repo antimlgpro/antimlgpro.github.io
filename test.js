@@ -43,6 +43,7 @@ function buyItem(item, amount) {
     {
      warning("You do not have enough clicks.", 2000);
     }
+     warning("Max autoclickers", 2000);
    }
 }
 
