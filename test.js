@@ -56,6 +56,7 @@ function buyItem(item, amount) {
         numclicks = numclicks - pcCost;
         pcCost = pcCost * 1.4;
         pcCost = pcCost.toFixed(0) * 1;
+        console.log(item);
         if(item == "pc") {
             items.push(item);
             item = "";
