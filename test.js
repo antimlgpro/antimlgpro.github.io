@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.2641";
+var version = "2.0.2642";
 
 
 //player stuff
@@ -31,8 +31,8 @@ function autoclick() {
 function buyItem(item, amount) {
    if(clicks != 60) {   
     if(numclicks >= clickerCost) {
-        clickerCost.toFixed(0);
         numclicks = numclicks - clickerCost;
+        clickerCost.toFixed(0);
         clickerCost = clickerCost * 1.2;
         if(item == "autoclicker") {
             items.push(item);
