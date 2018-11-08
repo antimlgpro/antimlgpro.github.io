@@ -106,6 +106,8 @@ function gameLoop() {
             delay.toFixed(0);
             }
         }
+        }
+        });
         if(delay <= delayMax) {
             delay = 0;
         }
