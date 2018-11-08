@@ -53,7 +53,7 @@ function buyItem(item, amount) {
    }
    if(pc != 60) {
     if(numclicks >= pcCost) {
-        numclicks = numclicks - clickerCost;
+        numclicks = numclicks - pcCost;
         pcCost = pcCost * 1.4;
         pcCost = pcCost.toFixed(0) * 1;
         if(item == "pc") {
