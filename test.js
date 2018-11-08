@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.243";
+var version = "2.0.25";
 
 
 //player stuff
@@ -29,6 +29,7 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
+   if(clickerCost !>= 230584300921369400000) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost * 2;
@@ -47,6 +48,7 @@ function buyItem(item, amount) {
      }
      }, 2000);
     }
+   }
 }
 
 function sleep(delay2) {
