@@ -41,13 +41,17 @@ function buyItem(item, amount) {
     }
     else 
     {
-     document.getElementById("warning").style.display = 'block';   
-     document.getElementById("warning").innerHTML = "You do not have enough clicks.";
-     setTimeout(function(){ 
-     document.getElementById("warning").style.display = 'none';
-     }, 2000);
+     warning("You do not have enough clicks.", 2000);
     }
    }
+}
+
+function warning(text, time) {
+    document.getElementById("warning").style.display = 'block';   
+    document.getElementById("warning").innerHTML = text;
+    setTimeout(function(){ 
+    document.getElementById("warning").style.display = 'none';
+    }, time);
 }
 
 function sleep(delay2) {
