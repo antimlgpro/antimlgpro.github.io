@@ -15,7 +15,7 @@ var clickerCost = 200;
 
 
 function clickbtn() {
-    addclick();
+    addclick(1);
 }
 
 function addclick(amount) {
@@ -24,7 +24,7 @@ function addclick(amount) {
 
 function autoclick() {
     window.setInterval(function() {
-        addclick();
+        addclick(1);
     }, delay);
 }
 
