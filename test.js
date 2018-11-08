@@ -95,6 +95,9 @@ function saving() {
 }
 
 function loading() {
+    if(getCookie("clicks") == "undefined") {
+    reset();
+    }
     numclicks = getCookie("clicks");
     delay = getCookie("delay");
     clickerCost = getCookie("cost");
