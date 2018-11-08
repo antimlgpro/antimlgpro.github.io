@@ -19,7 +19,7 @@ function clickbtn() {
 }
 
 function addclick(amount) {
-    numclicks = numclicks + amount;
+    numclicks = numclicks + amount.value;
 }
 
 function autoclick() {
