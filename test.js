@@ -9,10 +9,12 @@ var version = "2.0.27";
 //player stuff
 var items = [];
 var clicks = 0;
+var pc = 0;
+
+//cost
 var clickerCost = 200;
-
-
-//saving
+var pcCost = 5000;
+var first1 = 1000000;
 
 
 function clickbtn() {
@@ -47,7 +49,26 @@ function buyItem(item, amount) {
    }
    else 
    {
-    warning("Max autoclickers", 2000);
+    warning("Max autoclickers.", 2000);
+   }
+   if(pc != 60) {
+    if(numclicks >= pcCost) {
+        numclicks = numclicks - clickerCost;
+        pcCost = pcCost * 1.4;
+        pcCost = pcCost.toFixed(0) * 1;
+        if(item == "pc") {
+            items.push(item);
+            item = "";
+        }
+      }
+      else
+      {
+      warning("You do not have enough clicks.", 2000);
+      }
+   }
+   else 
+   {
+   warning("Max professional clickers.", 2000);
    }
 }
 
@@ -78,7 +99,15 @@ function gameLoop() {
             delay.toFixed(0);
             }
         }
-        
+     items.forEach(function(value){
+        if(value == "pc") {
+            if(pc < items.length) {
+            pc++;
+            autoclick();
+            delay = delay - multi;
+            delay.toFixed(0);
+            }
+        }
         
     });
         if(delay <= delayMax) {
@@ -88,6 +117,7 @@ function gameLoop() {
         document.getElementById("cps").innerHTML = "Clicks per second: " + cps;
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
+        document.getElementById("pc").innerHTML = "Autoclickers: " + pc;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
