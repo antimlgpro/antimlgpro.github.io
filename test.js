@@ -17,8 +17,8 @@ function clickbtn() {
     addclick();
 }
 
-function addclick() {
-    numclicks++;
+function addclick(amount) {
+    numclicks += amount;
 }
 
 function autoclick() {
