@@ -2,6 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
+var cps = 0;
 var version = "2.0.2644";
 
 
@@ -83,6 +84,8 @@ function gameLoop() {
         if(delay <= delayMax) {
             delay = 0;
         }
+        cps = cpsCalc(items);
+        document.getElementById("cps").innerHTML = "Clicks per second: " + cps;
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
@@ -128,4 +131,13 @@ function reset() {
     clicks = 0;
     items = [];
     loading();
+}
+
+function cpsCalc(itemsA) {
+    var x = itemsA.length;
+    var y = 1000;
+    itemsA.forEach(function() {
+        y = y + 1000;
+    });
+    return y;
 }
