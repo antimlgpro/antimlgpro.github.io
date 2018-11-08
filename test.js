@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.251";
+var version = "2.0.252";
 
 
 //player stuff
@@ -29,7 +29,7 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-   if(clicks != 60) {   
+   if(clicks != 61) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost * 2;
@@ -43,9 +43,10 @@ function buyItem(item, amount) {
     {
      document.getElementById("warning").innerHTML = "You do not have enough clicks.";
      setTimeout(function(){ 
-     for(var i = 0; i <= 100; i = i + 10) {
-     document.getElementById("warning").style.opacity =- i;
+     for(var i = 0; i <= 100; i++) {
+     document.getElementById("warning").style.opacity -= i;
      }
+     document.getElementById("warning").style.display = none;
      }, 2000);
     }
    }
