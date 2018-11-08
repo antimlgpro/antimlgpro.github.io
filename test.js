@@ -29,7 +29,7 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-   if(clickerCost !>= 230584300921369400000) {   
+   if(clicks != 60) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost * 2;
