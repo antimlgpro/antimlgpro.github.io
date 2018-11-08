@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.262";
+var version = "2.0.263";
 
 
 //player stuff
@@ -43,11 +43,10 @@ function buyItem(item, amount) {
     {
      warning("You do not have enough clicks.", 2000);
     }
-    }
-    else 
-    {
-     warning("Max autoclickers", 2000);
-    }
+   }
+   else 
+   {
+    warning("Max autoclickers", 2000);
    }
 }
 
