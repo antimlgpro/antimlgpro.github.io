@@ -101,6 +101,7 @@ function gameLoop() {
          if(value == "pc") {
             if(pc < items.length) {
             pc++;
+            console.log(pc);
             autoclick();
             delay = delay - multi;
             delay.toFixed(0);
