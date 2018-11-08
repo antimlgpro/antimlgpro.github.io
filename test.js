@@ -2,6 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
+var version = "2.0.13";
 
 
 //player stuff
@@ -54,7 +55,7 @@ function sleep(delay2) {
       }
 
 function gameLoop() {
-    console.log("version: 2.0.20");
+    console.log("version:" + version);
     loading();
     window.setInterval(function(){
     items.forEach(function(value){
