@@ -98,9 +98,7 @@ function gameLoop() {
             delay = delay - multi;
             delay.toFixed(0);
             }
-        }
-     items.forEach(function(value){
-        if(value == "pc") {
+         if(value == "pc") {
             if(pc < items.length) {
             pc++;
             autoclick();
@@ -108,8 +106,6 @@ function gameLoop() {
             delay.toFixed(0);
             }
         }
-        
-    });
         if(delay <= delayMax) {
             delay = 0;
         }
