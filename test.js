@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.2643";
+var version = "2.0.2644";
 
 
 //player stuff
