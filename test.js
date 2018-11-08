@@ -42,8 +42,11 @@ function buyItem(item, amount) {
     else 
     {
      warning("You do not have enough clicks.", 2000);
-    }
+    } 
+    else 
+    {
      warning("Max autoclickers", 2000);
+    }
    }
 }
 
@@ -52,6 +55,7 @@ function warning(text, time) {
     document.getElementById("warning").innerHTML = text;
     setTimeout(function(){ 
     document.getElementById("warning").style.display = 'none';
+    document.getElementById("warning").innerHTML = "";
     }, time);
 }
 
