@@ -32,7 +32,7 @@ function buyItem(item, amount) {
    if(clicks != 60) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
-        clickerCost = clickerCost * 2;
+        clickerCost = clickerCost * 1.2;
         clickerCost.toFixed(0);
         if(item == "autoclicker") {
             items.push(item);
