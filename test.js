@@ -2,7 +2,7 @@ var numclicks = 0;
 var delay = 1000;
 var multi = 1;
 var delayMax = 0;
-var version = "2.0.252";
+var version = "2.0.253";
 
 
 //player stuff
@@ -44,9 +44,10 @@ function buyItem(item, amount) {
      document.getElementById("warning").innerHTML = "You do not have enough clicks.";
      setTimeout(function(){ 
      for(var i = 0; i <= 100; i++) {
+     console.log(document.getElementById("warning").style.opacity);
      document.getElementById("warning").style.opacity -= i;
      }
-     document.getElementById("warning").style.display = none;
+     document.getElementById("warning").display = none;
      }, 2000);
     }
    }
