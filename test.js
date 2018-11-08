@@ -33,7 +33,7 @@ function buyItem(item, amount) {
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost * 1.2;
-        clickerCost.toFixed(0);
+        clickerCost = clickerCost.toFixed(0) * 1;
         if(item == "autoclicker") {
             items.push(item);
             item = "";
@@ -86,7 +86,7 @@ function gameLoop() {
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
-        document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost.toFixed(0);
+        document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
     window.setInterval(function() {
     saving();
