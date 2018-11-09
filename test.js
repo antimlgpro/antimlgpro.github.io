@@ -3,7 +3,7 @@ var delay = 1000;
 var multi = 1;
 var delayMax = 0;
 var cps = 0;
-var version = "2.0.32";
+var version = "2.0.4";
 
 
 //player stuff
@@ -48,7 +48,7 @@ function buyItem(item, amount) {
     warning("Max autoclickers.", 2000);
    
 }
-
+}
 function warning(text, time) {
     document.getElementById("warning").style.display = 'block';   
     document.getElementById("warning").innerHTML = text;
