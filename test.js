@@ -16,7 +16,7 @@ var clickerCost = 15;
 var costMulti = 0;
 
 //version
-var version = "2.0.20";
+var version = "2.0.21";
 
 function clickbtn() {
     addclick(1);
@@ -66,12 +66,11 @@ function sleep(delay2) {
 function gameLoop() {
     console.log("version:" + version);
     window.setInterval(function(){
+    autoclick();
     items.forEach(function(value){
         if(value == "autoclicker") {
             if(clickers < items.length) {
             clickers++;
-            autoclick();
-            delay = delay - multi;
             delay.toFixed(0);
             }
         }
