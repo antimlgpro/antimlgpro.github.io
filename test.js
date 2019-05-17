@@ -4,7 +4,7 @@ var multi = 10;
 
 
 //delay
-var delay = 10000;
+var delay = 5000;
 var delayMin = 0;
 
 //player stuff
@@ -16,7 +16,7 @@ var clickerCost = 10;
 var costMulti = 3.2;
 
 //version
-var version = "2.0.14";
+var version = "2.0.15";
 
 function clickbtn() {
     addclick(1);
@@ -87,7 +87,7 @@ function gameLoop() {
         }
         document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clickers;
-        document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
+        document.getElementById("delay").innerHTML = "Delay: " + delay + "ms " + delay/1000 + "s";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
     
