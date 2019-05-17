@@ -13,6 +13,7 @@ var clickers = 0;
 
 //cost
 var clickerCost = 10;
+var costMulti = 10;
 
 //version
 var version = "2.0.10";
@@ -35,7 +36,7 @@ function buyItem(item, amount) {
    if(clickers != 60) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
-        clickerCost = clickerCost * 1.2;
+        clickerCost = clickerCost * costMulti;
         clickerCost = clickerCost.toFixed(0) * 1;
         if(item == "autoclicker") {
             items.push(item);
