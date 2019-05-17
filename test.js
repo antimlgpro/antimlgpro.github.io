@@ -16,7 +16,7 @@ var clickerCost = 10;
 var costMulti = 3.2;
 
 //version
-var version = "2.0.12";
+var version = "2.0.13";
 
 function clickbtn() {
     addclick(1);
@@ -29,6 +29,7 @@ function addclick(amount) {
 function autoclick() {
     window.setInterval(function() {
         addclick(clickers);
+        warning("Added a click", 1000);
     }, delay);
 }
 
@@ -45,12 +46,12 @@ function buyItem(item, amount) {
     }
     else 
     {
-     warning("You do not have enough clicks.", 2000);
+     warning("You do not have enough clicks.", 1000);
     }
    }
    else 
    {
-    warning("Max autoclickers.", 2000);
+    warning("Max autoclickers.", 1000);
    
 }
 }
