@@ -15,7 +15,7 @@ var clickers = 0;
 var clickerCost = 10;
 
 //version
-var version = "2.0.7";
+var version = "2.0.8";
 
 function clickbtn() {
     addclick(1);
