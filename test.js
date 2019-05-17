@@ -16,7 +16,7 @@ var clickerCost = 15;
 var costMulti = 0;
 
 //version
-var version = "2.0.26";
+var version = "2.0.27";
 
 function clickbtn() {
     addclick(1);
@@ -29,7 +29,7 @@ function addclick(amount) {
 function autoclick() {
     window.setInterval(function() {
         warning("Added a click", 1000);
-        addclick(clickers);
+        addclick(1);
         console.log("Click");
     }, delay);
 }
