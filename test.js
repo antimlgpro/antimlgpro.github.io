@@ -97,38 +97,6 @@ console.log("LOADED");
 
 window.onload = gameLoop;
 
-function saving() {
-    document.cookie = "clicks=" + numclicks;
-    document.cookie = "delay=" + delay;
-    document.cookie = "cost=" + clickerCost;
-    console.log("done saving");
-}
-
-function loading() {
-    if(getCookie("clicks") == "undefined") {
-    reset();
-    }
-    numclicks = getCookie("clicks");
-    delay = getCookie("delay");
-    clickerCost = getCookie("cost");
-    console.log("done loading save");
-}
-
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
-}
-
-function reset() {
-    document.cookie = "clicks=0";
-    document.cookie = "delay=1000";
-    document.cookie = "cost=200";
-    clicks = 0;
-    items = [];
-    loading();
-}
-
 function cpsCalc(itemsA) {
     var x = itemsA.length;
     var y = 0;
