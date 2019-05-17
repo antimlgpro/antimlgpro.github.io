@@ -68,9 +68,9 @@ function gameLoop() {
     window.setInterval(function(){
     items.forEach(function(value){
         if(value == "autoclicker") {
-            autoclick();
             if(clickers < items.length) {
                 clickers++;
+                autoclick();
                 delay = delay - multi;
                 delay.toFixed(0);
                 }
