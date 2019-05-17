@@ -1,6 +1,6 @@
 //clicks
 var clicks = 0;
-var multi = 1;
+var multi = 0;
 
 
 //delay
@@ -16,7 +16,7 @@ var clickerCost = 10;
 var costMulti = 3.2;
 
 //version
-var version = "2.0.16";
+var version = "2.0.17";
 
 function clickbtn() {
     addclick(1);
@@ -34,7 +34,6 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-   if(clickers != 60) {   
     if(clicks >= clickerCost) {
         clicks = clicks - clickerCost;
         clickerCost = clickerCost * costMulti;
@@ -48,12 +47,6 @@ function buyItem(item, amount) {
     {
      warning("You do not have enough clicks.", 1000);
     }
-   }
-   else 
-   {
-    warning("Max autoclickers.", 1000);
-   
-}
 }
 function warning(text, time) {
     document.getElementById("warning").style.display = 'block';   
