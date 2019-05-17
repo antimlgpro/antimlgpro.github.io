@@ -13,10 +13,10 @@ var clickers = 0;
 
 //cost
 var clickerCost = 10;
-var costMulti = 10;
+var costMulti = 3.2;
 
 //version
-var version = "2.0.11";
+var version = "2.0.12";
 
 function clickbtn() {
     addclick(1);
