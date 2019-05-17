@@ -12,11 +12,11 @@ var items = [];
 var clickers = 0;
 
 //cost
-var clickerCost = 10;
-var costMulti = 3.2;
+var clickerCost = 15;
+var costMulti = (15 / 100) * clickerCost;
 
 //version
-var version = "2.0.17";
+var version = "2.0.18";
 
 function clickbtn() {
     addclick(1);
