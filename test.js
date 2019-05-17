@@ -75,7 +75,7 @@ function gameLoop() {
             if(clickers < items.length) {
             clickers++;
             autoclick();
-            delay = delay - multi;
+            delay = delay + multi;
             delay.toFixed(0);
             }
         }
