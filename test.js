@@ -16,7 +16,7 @@ var clickerCost = 15;
 var costMulti = 0;
 
 //version
-var version = "2.0.22";
+var version = "2.0.24";
 
 function clickbtn() {
     addclick(1);
@@ -69,15 +69,18 @@ function gameLoop() {
     items.forEach(function(value){
         if(value == "autoclicker") {
             if(clickers < items.length) {
-            autoclick();
-            clickers++;
-            delay.toFixed(0);
+                clickers++;
+                autoclick();
+                delay = delay - multi;
+                delay.toFixed(0);
+                }
             }
-        }
         });
+        
         if(delay <= delayMin) {
             delay = 0;
         }
+        
         document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clickers;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms " + delay/1000 + "s";
@@ -89,4 +92,3 @@ function gameLoop() {
 console.log("LOADED");
 
 window.onload = gameLoop;
-
