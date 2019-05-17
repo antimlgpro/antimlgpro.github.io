@@ -80,8 +80,6 @@ function gameLoop() {
         if(delay <= delayMax) {
             delay = 0;
         }
-        cps = cpsCalc(items);
-        document.getElementById("cps").innerHTML = "Clicks per second: " + cps;
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
@@ -97,11 +95,3 @@ console.log("LOADED");
 
 window.onload = gameLoop;
 
-function cpsCalc(itemsA) {
-    var x = itemsA.length;
-    var y = 0;
-    itemsA.forEach(function() {
-        y = y + 1;
-    });
-    return y;
-}
