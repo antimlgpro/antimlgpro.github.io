@@ -1,6 +1,6 @@
 //clicks
 var numclicks = 0;
-var multi = 1;
+var multi = 10;
 
 
 //delay
@@ -15,7 +15,7 @@ var clickers = 0;
 var clickerCost = 10;
 
 //version
-var version = "2.0.9";
+var version = "2.0.10";
 
 function clickbtn() {
     addclick(1);
