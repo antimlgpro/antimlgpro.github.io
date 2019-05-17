@@ -15,7 +15,7 @@ var clickers = 0;
 var clickerCost = 10;
 
 //version
-var version = "2.0.6";
+var version = "2.0.7";
 
 function clickbtn() {
     addclick(1);
@@ -32,7 +32,7 @@ function autoclick() {
 }
 
 function buyItem(item, amount) {
-   if(clicks != 60) {   
+   if(clickers != 60) {   
     if(numclicks >= clickerCost) {
         numclicks = numclicks - clickerCost;
         clickerCost = clickerCost * 1.2;
@@ -72,7 +72,7 @@ function gameLoop() {
     window.setInterval(function(){
     items.forEach(function(value){
         if(value == "autoclicker") {
-            if(clicks < items.length) {
+            if(clickers < items.length) {
             clickers++;
             autoclick();
             delay = delay - multi;
