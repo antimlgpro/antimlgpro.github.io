@@ -65,7 +65,6 @@ function sleep(delay2) {
 
 function gameLoop() {
     console.log("version:" + version);
-    loading();
     window.setInterval(function(){
     items.forEach(function(value){
         if(value == "autoclicker") {
@@ -85,9 +84,6 @@ function gameLoop() {
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
-    window.setInterval(function() {
-    saving();
-    }, 10000);
     
 }
 
