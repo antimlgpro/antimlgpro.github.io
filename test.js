@@ -36,7 +36,7 @@ function autoclick() {
 function buyItem(item, amount) {
     if(clicks >= clickerCost) {
         clicks = clicks - clickerCost;
-        clickerCost = clickerCost * costMulti;
+        clickerCost = clickerCost + costMulti;
         clickerCost = clickerCost.toFixed(0) * 1;
         if(item == "autoclicker") {
             items.push(item);
