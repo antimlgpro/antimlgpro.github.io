@@ -3,7 +3,7 @@ var delay = 1000;
 var multi = 1;
 var delayMax = 0;
 var cps = 0;
-var version = "2.0.4";
+var version = "2.0.5";
 
 
 //player stuff
