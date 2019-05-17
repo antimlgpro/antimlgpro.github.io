@@ -16,7 +16,7 @@ var clickerCost = 15;
 var costMulti = (15 / 100) * clickerCost;
 
 //version
-var version = "2.0.18";
+var version = "2.0.19";
 
 function clickbtn() {
     addclick(1);
