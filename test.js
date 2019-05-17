@@ -1,17 +1,21 @@
+//clicks
 var numclicks = 0;
-var delay = 1000;
 var multi = 1;
-var delayMax = 0;
-var cps = 0;
-var version = "2.0.5";
 
+
+//delay
+var delay = 1000;
+var delayMin = 0;
 
 //player stuff
 var items = [];
-var clicks = 0;
+var clickers = 0;
 
 //cost
-var clickerCost = 200;
+var clickerCost = 10;
+
+//version
+var version = "2.0.5";
 
 function clickbtn() {
     addclick(1);
@@ -69,18 +73,18 @@ function gameLoop() {
     items.forEach(function(value){
         if(value == "autoclicker") {
             if(clicks < items.length) {
-            clicks++;
+            clickers++;
             autoclick();
             delay = delay - multi;
             delay.toFixed(0);
             }
         }
         });
-        if(delay <= delayMax) {
+        if(delay <= delayMin) {
             delay = 0;
         }
         document.getElementById("clicks").innerHTML = "Clicks: " + numclicks;
-        document.getElementById("auto").innerHTML = "Autoclickers: " + clicks;
+        document.getElementById("auto").innerHTML = "Autoclickers: " + clickers;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms";
         document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
     },10);
