@@ -16,7 +16,7 @@ var clickerCost = 10;
 var costMulti = 3.2;
 
 //version
-var version = "2.0.13";
+var version = "2.0.14";
 
 function clickbtn() {
     addclick(1);
@@ -77,7 +77,7 @@ function gameLoop() {
             if(clickers < items.length) {
             clickers++;
             autoclick();
-            delay = delay + multi;
+            delay = delay - multi;
             delay.toFixed(0);
             }
         }
