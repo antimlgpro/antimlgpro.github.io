@@ -13,10 +13,10 @@ var clickers = 0;
 
 //cost
 var clickerCost = 15;
-var costMulti = (15 / 100) * clickerCost;
+var costMulti = 0;
 
 //version
-var version = "2.0.19";
+var version = "2.0.20";
 
 function clickbtn() {
     addclick(1);
@@ -28,15 +28,16 @@ function addclick(amount) {
 
 function autoclick() {
     window.setInterval(function() {
-        addclick(clickers);
         warning("Added a click", 1000);
+        addclick(clickers);
+        console.log("Click");
     }, delay);
 }
 
 function buyItem(item, amount) {
     if(clicks >= clickerCost) {
         clicks = clicks - clickerCost;
-        clickerCost = clickerCost + costMulti;
+        clickerCost = clickerCost + (15 / 100) * clickerCost;
         clickerCost = clickerCost.toFixed(0) * 1;
         if(item == "autoclicker") {
             items.push(item);
