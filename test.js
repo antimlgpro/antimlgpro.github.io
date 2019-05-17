@@ -88,7 +88,7 @@ function gameLoop() {
         document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
         document.getElementById("auto").innerHTML = "Autoclickers: " + clickers;
         document.getElementById("delay").innerHTML = "Delay: " + delay + "ms " + delay/1000 + "s";
-        document.getElementById("cost").innerHTML = "AutoClicker cost: " + clickerCost;
+        document.getElementById("cost").innerHTML = "Autoclicker cost: " + clickerCost;
     },10);
     
 }
