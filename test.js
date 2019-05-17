@@ -27,7 +27,7 @@ function addclick(amount) {
 
 function autoclick() {
     window.setInterval(function() {
-        addclick(1);
+        addclick(clickers);
     }, delay);
 }
 
