@@ -114,7 +114,7 @@ function updateTxt()
     document.getElementById("cost2").innerHTML = "Cost: " + betterClicker.cost;
     
     // fabbeclicker
-    document.getElementById("fabbe").innerHTML = "Betterclickers: " + items.filter(function(x){return x=="fabbeclicker"}).length;
+    document.getElementById("fabbe").innerHTML = "Fabbeclickers: " + items.filter(function(x){return x=="fabbeclicker"}).length;
     document.getElementById("delay3").innerHTML = "Delay: " + fabbeClicker.delay + "ms " + fabbeClicker.delay/1000 + "s";
     document.getElementById("cost3").innerHTML = "Cost: " + fabbeClicker.cost;
 }
