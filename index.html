@@ -1,14 +1,7 @@
 <html>
 <head>
   <title>Square clickers 2</title>
-<script src="test.js">
-</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-8803052941602163",
-          enable_page_level_ads: true
-     });
+<script src="clicker.js">
 </script>
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -26,16 +19,43 @@
     font-family: 'Roboto', sans-serif;
   }
   
+  .clickDiv {
+    border-bottom: 2px solid #aeaeae;
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    height: fit-content;
+    background-color: #e0e0e0;
+  }
+  .clickerDiv {
+    border: 2px solid #aeaeae;
+    border-radius: 5px;
+    padding: 0px;
+    width: 20%;
+    height:100%;
+    overflow: hidden;
+  }
+  .clickbtn {
+    background-color: #b0bec5;
+  }
 </style>
 </head>
 <body oncontextmenu="return false;">
-<button id="button" onclick="clickbtn()">
-</button>
-<p id="clicks">Clicks: 0</p>
-<p id="auto">Autoclickers: 0</p>
-<p id="delay">Delay: </p>
-<button onclick="buyItem('autoclicker', 1)">Buy autoclicker</button>
-<p id="cost">Autoclicker cost: 0</p>
-<h3 id="warning"></h3>
+    <button id="button" onclick="addClick(1);"></button>
+    <p id="clicks">Clicks: 0</p>
+    <p id="auto">Autoclickers: 0</p>
+    <p id="better">Betterclickers: 0</p>
+    <div class="clickerDiv">
+        <div class="clickDiv">
+            <button onclick="buyItem(autoClicker)" class="clickbtn">Buy Autoclicker</button>
+            <p id="delay">Delay: </p>
+            <p id="cost">Cost: </p>
+        </div>
+        <div class="clickDiv">
+            <button onclick="buyItem(betterClicker)" class="clickbtn">Buy Betterclicker</button>
+            <p id="delay2">Delay: </p>
+            <p id="cost2">Cost: </p>
+        </div>
+    </div>
+    <h3 id="warning"></h3>
 </body>
 </html>
