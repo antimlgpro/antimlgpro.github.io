@@ -21,7 +21,7 @@ function startGame()
     // items
     autoClicker = new createClicker("autoclicker", 15, 15, 1, 5000);
     betterClicker = new createClicker("betterclicker", 50, 20, 2, 2500)
-    fabbeClicker = new createClicker("fabbeclicker", 50, 20, 2, 2500)
+    fabbeClicker = new createClicker("fabbeclicker", 200, 30, 5, 5500)
     
     //intervals
     this.autoLoop = setInterval(autoClicker.update, autoClicker.delay);
