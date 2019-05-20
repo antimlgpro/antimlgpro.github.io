@@ -59,16 +59,17 @@ function createClicker(name, cost, multi, cps, delay)
     this.multi = multi;
     this.cps = cps;
     this.delay = delay;
+    var cps2 = this.cps;
+    
     this.update = function() 
     {
-        this.cps = cps;
         if (items.length > 0)
-            addClick(cps);
+            addClick(cps2);
     },
     this.changeCost = function() 
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        this.cps = this.cps + this.cps;
+        this.cps = this.cps + cps2;
         
     }
 }
