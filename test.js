@@ -58,11 +58,6 @@ function warning(text, time) {
     }, time);
 }
 
-function sleep(delay2) {
-        var start = new Date().getTime();
-        while (new Date().getTime() < start + delay2);
-      }
-
 function gameLoop() {
     console.log("version:" + version);
     window.setInterval(function(){
