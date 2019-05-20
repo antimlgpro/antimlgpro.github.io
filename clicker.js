@@ -12,7 +12,7 @@ var autoClicker;
 var betterClicker;
 
 // version
-var version = "2.1.6";
+var version = "2.1.7";
 
 function startGame() 
 {
@@ -61,7 +61,7 @@ function createClicker(name, cost, multi, cps, delay)
     this.update = function() 
     {
         if (items.length > 0)
-            addClick(this.cps);
+            addClick(cps);
     },
     this.changeCost = function() 
     {
