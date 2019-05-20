@@ -12,7 +12,7 @@ var autoClicker;
 var betterClicker;
 
 // version
-var version = "2.1.7";
+var version = "2.1.8";
 
 function startGame() 
 {
