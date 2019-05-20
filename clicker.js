@@ -21,10 +21,12 @@ function startGame()
     // items
     autoClicker = new createClicker("autoclicker", 15, 15, 1, 5000);
     betterClicker = new createClicker("betterclicker", 50, 20, 2, 2500)
+    fabbeClicker = new createClicker("fabbeclicker", 50, 20, 2, 2500)
     
     //intervals
     this.autoLoop = setInterval(autoClicker.update, autoClicker.delay);
     this.betterLoop = setInterval(betterClicker.update, betterClicker.delay);
+    this.fabbeLoop = setInterval(fabbeClicker.update, fabbeClicker.delay);
     
     // info
     console.log("LOADED \nVersion: " + version);
@@ -110,6 +112,11 @@ function updateTxt()
     document.getElementById("better").innerHTML = "Betterclickers: " + items.filter(function(x){return x=="betterclicker"}).length;
     document.getElementById("delay2").innerHTML = "Delay: " + betterClicker.delay + "ms " + betterClicker.delay/1000 + "s";
     document.getElementById("cost2").innerHTML = "Cost: " + betterClicker.cost;
+    
+    // fabbeclicker
+    document.getElementById("fabbe").innerHTML = "Betterclickers: " + items.filter(function(x){return x=="fabbeclicker"}).length;
+    document.getElementById("delay3").innerHTML = "Delay: " + fabbeClicker.delay + "ms " + fabbeClicker.delay/1000 + "s";
+    document.getElementById("cost3").innerHTML = "Cost: " + fabbeClicker.cost;
 }
 
 window.onload = startGame();
