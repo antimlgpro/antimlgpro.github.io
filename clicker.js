@@ -10,6 +10,7 @@ var items = [];
 
 var autoClicker;
 var betterClicker;
+var fabbeClicker;
 
 // version
 var version = "2.1.8";
@@ -66,7 +67,7 @@ function createClicker(name, cost, multi, cps, delay)
     this.changeCost = function() 
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        cps = cps + cps;
+        cps = this.cps * 2;
         
     }
 }
