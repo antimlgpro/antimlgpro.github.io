@@ -61,7 +61,7 @@ function createClicker(name, cost, multi, cps, delay)
     this.update = function() 
     {
         if (items.length > 0)
-            addClick(cps)
+            addClick(this.cps)
     },
     this.changeCost = function() 
     {
