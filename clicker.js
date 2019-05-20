@@ -66,7 +66,7 @@ function createClicker(name, cost, multi, cps, delay)
     this.changeCost = function() 
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        this.cps = cps + cps;
+        cps = cps + cps;
         
     }
 }
