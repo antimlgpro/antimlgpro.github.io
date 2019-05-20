@@ -13,7 +13,7 @@ var betterClicker;
 var fabbeClicker;
 
 // version
-var version = "2.1.8";
+var version = "2.1.9";
 
 function startGame() 
 {
@@ -61,8 +61,9 @@ function createClicker(name, cost, multi, cps, delay)
     this.delay = delay;
     this.update = function() 
     {
+        this.cps = cps;
         if (items.length > 0)
-            addClick(this.cps);
+            addClick(cps);
     },
     this.changeCost = function() 
     {
