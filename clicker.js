@@ -14,13 +14,16 @@ var betterClicker;
 // version
 var version = "2.1.0";
 
+// debug
+var debug = false;
+
 function startGame() 
 {
     game.start();
     
     // items
-    autoClicker = new createClicker("autoclicker", 15, 15, 1, 5000);
-    betterClicker = new createClicker("betterclicker", 50, 20, 2, 2500)
+    autoClicker = new createClicker("autoclicker", 15, 15, 0, 1, 5000);
+    betterClicker = new createClicker("betterclicker", 50, 20, 0, 2, 2500)
     
     //intervals
     this.autoLoop = setInterval(autoClicker.update, autoClicker.delay);
@@ -44,27 +47,36 @@ function update()
     updateTxt();
 }
 
-function addClick(amount) 
+function addClick(amount,name) 
 {
-    clicks = parseInt(clicks) + amount;
+    clicks = clicks + amount;
+    if(debug == true){console.log("addclick." + name + "\n" + amount);}
+    document.getElementById("clicksPlus").innerHTML = "+" + amount;
+    setTimeout(function(){ 
+    document.getElementById("clicksPlus").innerHTML = "";
+    }, 1000);
 }
 
-function createClicker(name, cost, multi, cps, delay) 
+function createClicker(name, cost, multi, cps, cpsConst, delay) 
 {
-    this.name = name;
-    this.cost = cost;
-    this.multi = multi;
-    this.cps = cps;
-    this.delay = delay;
+    this.name = name; // name
+    this.cost = cost; // cost
+    this.multi = multi; // cost multiplier
+    this.cps = cps; // cps
+    this.delay = delay; // delay
+    
     this.update = function() 
     {
-        if (items.length > 0)
-            addClick(cps)
+        this.cps = cps;
+        if (items.length > 0) {
+            addClick(cps, name);
+        }
     },
     this.changeCost = function() 
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        this.cps = cps * 2;
+        cps = cps + cpsConst;
+        if(debug == true){console.log("changeCost." + name + "\ncpsConst: " + cpsConst + "\ncps: " + cps);}
         
     }
 }

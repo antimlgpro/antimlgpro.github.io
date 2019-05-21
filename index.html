@@ -21,9 +21,10 @@
   #warning {
     font-family: 'Roboto', sans-serif;
     right: 40%;
+    bottom: 20%;
     position: relative;
     float: right;
-    }
+  }
   
   .clickDiv {
     border-bottom: 2px solid #aeaeae;
@@ -32,6 +33,7 @@
     height: fit-content;
     background-color: #e0e0e0;
   }
+  
   .clickerDiv {
     border: 2px solid #aeaeae;
     border-radius: 5px;
@@ -40,16 +42,34 @@
     height:100%;
     overflow: hidden;
   }
+  #clicksPlus {
+    color: rgba(0,0,0,0.5);
+    float:left;
+    margin-left: 2px;
+  }
+  #clicks {
+    float:left;
+  }
+  .clickersDiv {
+    column-count: 2;
+    column-rule-width: 1px;
+    --column-gap: 5px;
+    width: fit-content;
+    margin-bottom: -10px;
+  }
+  
   .clickbtn {
     background-color: #b0bec5;
   }
 </style>
 </head>
 <body oncontextmenu="return false;">
-    <button id="button" onclick="addClick(1);"></button>
-    <p id="clicks">Clicks: 0</p>
+    <button id="button" onclick="addClick(1, 'button');"></button>
+    <div>
+    <div class="clickersDiv"><p id="clicks">Clicks: 0</p><p id="clicksPlus"></p></div>
     <p id="auto">Autoclickers: 0</p>
     <p id="better">Betterclickers: 0</p>
+    </div>
     <h3 id="warning"></h3>
     <div class="clickerDiv">
         <div class="clickDiv">
