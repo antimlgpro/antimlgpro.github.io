@@ -1,14 +1,17 @@
 <html>
 <head>
   <title>Square clickers 2</title>
-<script src="clicker.js">
-</script>
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   
   body {
     z-index: 1;
   }
+  
+  p {
+    font-family: 'Roboto', sans-serif;
+  }
+  
   #button {
     width: 80px;
     height: 80px;
@@ -20,10 +23,7 @@
   
   #warning {
     font-family: 'Roboto', sans-serif;
-    right: 40%;
-    bottom: 20%;
-    position: relative;
-    float: right;
+    position: absolute;
   }
   
   .clickDiv {
@@ -40,7 +40,10 @@
     padding: 0px;
     width: 20%;
     height:100%;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    float: right;
+    margin-top: -14.5%;
   }
   #clicksPlus {
     color: rgba(0,0,0,0.5);
@@ -66,22 +69,15 @@
 <body oncontextmenu="return false;">
     <button id="button" onclick="addClick(1, 'button');"></button>
     <div>
-    <div class="clickersDiv"><p id="clicks">Clicks: 0</p><p id="clicksPlus"></p></div>
-    <p id="auto">Autoclickers: 0</p>
-    <p id="better">Betterclickers: 0</p>
+        <div class="clickersDiv"><p id="clicks">Clicks: 0</p><p id="clicksPlus"></p></div>
+        <p id="auto">Autoclickers: 0</p>
+        <p id="better">Betterclickers: 0</p>
+        <p id="farm">Farmclickers: 0</p>
+        <h3 id="warning"></h3>
     </div>
-    <h3 id="warning"></h3>
-    <div class="clickerDiv">
-        <div class="clickDiv">
-            <button onclick="buyItem(autoClicker)" class="clickbtn">Buy Autoclicker</button>
-            <p id="delay">Delay: </p>
-            <p id="cost">Cost: </p>
+        <div class="clickerDiv" id="clickerDiv">
+        
         </div>
-        <div class="clickDiv">
-            <button onclick="buyItem(betterClicker)" class="clickbtn">Buy Betterclicker</button>
-            <p id="delay2">Delay: </p>
-            <p id="cost2">Cost: </p>
-        </div>
-    </div>
 </body>
+<script src="clicker.js"></script>
 </html>
