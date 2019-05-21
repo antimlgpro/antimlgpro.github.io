@@ -10,10 +10,9 @@ var items = [];
 
 var autoClicker;
 var betterClicker;
-var fabbeClicker;
 
 // version
-var version = "2.1.9";
+var version = "2.1.0";
 
 function startGame() 
 {
@@ -22,12 +21,10 @@ function startGame()
     // items
     autoClicker = new createClicker("autoclicker", 15, 15, 1, 5000);
     betterClicker = new createClicker("betterclicker", 50, 20, 2, 2500)
-    fabbeClicker = new createClicker("fabbeclicker", 200, 30, 5, 5500)
     
     //intervals
     this.autoLoop = setInterval(autoClicker.update, autoClicker.delay);
     this.betterLoop = setInterval(betterClicker.update, betterClicker.delay);
-    this.fabbeLoop = setInterval(fabbeClicker.update, fabbeClicker.delay);
     
     // info
     console.log("LOADED \nVersion: " + version);
@@ -59,17 +56,15 @@ function createClicker(name, cost, multi, cps, delay)
     this.multi = multi;
     this.cps = cps;
     this.delay = delay;
-    var cps2 = this.cps;
-    
     this.update = function() 
     {
         if (items.length > 0)
-            addClick(cps2);
+            addClick(cps)
     },
     this.changeCost = function() 
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        this.cps = this.cps + cps2;
+        this.cps = cps * 2;
         
     }
 }
@@ -115,11 +110,6 @@ function updateTxt()
     document.getElementById("better").innerHTML = "Betterclickers: " + items.filter(function(x){return x=="betterclicker"}).length;
     document.getElementById("delay2").innerHTML = "Delay: " + betterClicker.delay + "ms " + betterClicker.delay/1000 + "s";
     document.getElementById("cost2").innerHTML = "Cost: " + betterClicker.cost;
-    
-    // fabbeclicker
-    document.getElementById("fabbe").innerHTML = "Fabbeclickers: " + items.filter(function(x){return x=="fabbeclicker"}).length;
-    document.getElementById("delay3").innerHTML = "Delay: " + fabbeClicker.delay + "ms " + fabbeClicker.delay/1000 + "s";
-    document.getElementById("cost3").innerHTML = "Cost: " + fabbeClicker.cost;
 }
 
 window.onload = startGame();

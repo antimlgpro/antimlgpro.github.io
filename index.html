@@ -6,6 +6,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   
+  body {
+    z-index: 1;
+  }
   #button {
     width: 80px;
     height: 80px;
@@ -17,7 +20,10 @@
   
   #warning {
     font-family: 'Roboto', sans-serif;
-  }
+    right: 40%;
+    position: relative;
+    float: right;
+    }
   
   .clickDiv {
     border-bottom: 2px solid #aeaeae;
@@ -44,7 +50,7 @@
     <p id="clicks">Clicks: 0</p>
     <p id="auto">Autoclickers: 0</p>
     <p id="better">Betterclickers: 0</p>
-    <p id="fabbe">Fabbeclickers: 0</p>
+    <h3 id="warning"></h3>
     <div class="clickerDiv">
         <div class="clickDiv">
             <button onclick="buyItem(autoClicker)" class="clickbtn">Buy Autoclicker</button>
@@ -56,12 +62,6 @@
             <p id="delay2">Delay: </p>
             <p id="cost2">Cost: </p>
         </div>
-      <div class="clickDiv">
-            <button onclick="buyItem(fabbeClicker)" class="clickbtn">Buy Fabbeclicker</button>
-            <p id="delay3">Delay: </p>
-            <p id="cost3">Cost: </p>
-        </div>
     </div>
-    <h3 id="warning"></h3>
 </body>
 </html>
