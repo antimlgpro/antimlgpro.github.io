@@ -13,7 +13,7 @@ var betterClicker;
 var farmClicker;
 
 // version
-var version = "2.1.1";
+var version = "2.2.0";
 
 // debug
 var debug = false;
@@ -57,9 +57,9 @@ function addClick(amount,name)
     if(debug == true){console.log("addclick." + name + "\n" + amount);}
     
     if(amount != 0) {
-        document.getElementById("clicksPlus").innerHTML = "+" + amount;
+        document.getElementById("plus").innerHTML = "+" + amount;
         setTimeout(function(){ 
-        document.getElementById("clicksPlus").innerHTML = "";
+        document.getElementById("plus").innerHTML = "";
         }, 1000);
     }
 }
@@ -148,8 +148,8 @@ const clickerItems = [
 
 const markup = `
     ${clickerItems.map(item => `
-    <div class="clickDiv">
-        <button onclick="buyItem(${item.name})" class="clickbtn">Buy ${item.name}</button>
+    <div class="buyItem">
+        <button onclick="buyItem(${item.name})" class="buyBtn">Buy ${item.name}</button>
         <p id="delay${item.delayConst++}">Delay: ${item.delay}</p>
         <p id="cost${item.costConst++}">Cost: ${item.cost}</p>
      </div>

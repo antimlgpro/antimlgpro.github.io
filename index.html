@@ -4,38 +4,66 @@
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   
+  /* Separate objects */
   body {
-    z-index: 1;
+    overflow: hidden;
   }
   
   p {
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
   }
   
-  #button {
-    width: 80px;
-    height: 80px;
+  .mainBtn {
+    width: 100px;
+    height: 100px;
     top: 50%;
     left: 50%;
     position: relative;
-    background-color: blue;
+    background-color: #4db6ac;
+    border: 2px solid #00867d;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+  }
+  .mainBtn:hover {
+    box-shadow: 15px 11px 36px -12px rgba(0,0,0,0.75);
   }
   
-  #warning {
+  .warning {
     font-family: 'Roboto', sans-serif;
     position: absolute;
   }
   
-  .clickDiv {
-    border-bottom: 2px solid #aeaeae;
-    width: 100%;
-    padding: 5px 5px 0px 5px;
-    height: fit-content;
-    background-color: #e0e0e0;
+  /*Values menu */
+  
+  .valueCont {
+    border: 2px solid #00867d;
+    background-color: #4db6ac;
+    border-radius: 5px;
+    width: 18%;
+    box-shadow: 15px 11px 36px -9px rgba(0,0,0,0.75);
   }
   
-  .clickerDiv {
-    border: 2px solid #aeaeae;
+  .clicksCont {
+    column-count: 2;
+    width: 100%;
+  }
+  
+  .clicks {
+    float:left;
+  }
+  
+  .plus {
+    color: rgba(0,0,0,0.5);
+    float:left;
+    margin-left: 2px;
+  }
+  
+  /* Buy menu */
+    
+  .itemsDiv {
+    border: 2px solid #00867d;
     border-radius: 5px;
     padding: 0px;
     width: 20%;
@@ -44,38 +72,40 @@
     overflow-x: hidden;
     float: right;
     margin-top: -14.5%;
-  }
-  #clicksPlus {
-    color: rgba(0,0,0,0.5);
-    float:left;
-    margin-left: 2px;
-  }
-  #clicks {
-    float:left;
-  }
-  .clickersDiv {
-    column-count: 2;
-    column-rule-width: 1px;
-    --column-gap: 5px;
-    width: fit-content;
-    margin-bottom: -10px;
+    height: fit-content;
+    box-shadow: 15px 11px 36px -9px rgba(0,0,0,0.75);
   }
   
-  .clickbtn {
-    background-color: #b0bec5;
+  .buyItem {
+    border-bottom: 2px solid #00867d;
+    border-radius: 2px;
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    height: fit-content;
+    background-color: #4db6ac;
+    margin-bottom: 5px;
   }
+    
+  .buyBtn {
+    background-color: #bdbdbd;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+  
 </style>
 </head>
 <body oncontextmenu="return false;">
-    <button id="button" onclick="addClick(1, 'button');"></button>
-    <div>
-        <div class="clickersDiv"><p id="clicks">Clicks: 0</p><p id="clicksPlus"></p></div>
+    <button class="mainBtn" onclick="addClick(1, 'button');"></button>
+    <div class="valueCont">
+        <div class="clicksCont"><p id="clicks" class="clicks">Clicks: 0</p><p id="plus" class="plus"></p></div>
         <p id="auto">Autoclickers: 0</p>
         <p id="better">Betterclickers: 0</p>
         <p id="farm">Farmclickers: 0</p>
-        <h3 id="warning"></h3>
+        <h3 id="warning" class="warning"></h3>
     </div>
-        <div class="clickerDiv" id="clickerDiv">
+        <div class="itemsDiv" id="clickerDiv">
         
         </div>
 </body>
