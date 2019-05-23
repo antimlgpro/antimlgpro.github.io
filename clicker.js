@@ -65,7 +65,7 @@ function updateTxt()
     document.getElementById("clicks").textContent = "Clicks: " + clicks;
     for(var i = 0; i < clickers.length; i++) {
         document.getElementById("clicker" + i).textContent = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
-        document.getElementById("delay" + i).textContent = "Delay: " + clickers[i].delay + "ms " + clickers[i].delay/1000 + "s";
+        document.getElementById("delay" + i).textContent = "Delay: " + clickers[i].delay + "ms "; /* + clickers[i].delay/1000 + "s";*/
         document.getElementById("cost" + i).textContent = "Cost: " + clickers[i].cost;
     }
 }
