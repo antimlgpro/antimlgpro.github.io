@@ -7,10 +7,7 @@ var delayMin = 0;
 
 // player stuff
 var items = [];
-
-var autoClicker;
-var betterClicker;
-var farmClicker;
+var clickers = [];
 
 // version
 var version = "2.2.0";
@@ -22,17 +19,19 @@ function startGame()
 {
     game.start();
     
-    // items
-    autoClicker = new createClicker("autoClicker", 15, 15, 0, 1, 5000);
-    betterClicker = new createClicker("betterClicker", 50, 20, 0, 2, 2500);
-    farmClicker = new createClicker("farmClicker", 200, 25, 0, 5, 5500);
+    // Items (name, cost, multi, cps, cpsConst, delay)
+    clickers.push(new createClicker("AutoClicker",   15,  15, 0, 1, 5000));
+    clickers.push(new createClicker("BetterClicker", 50,  20, 0, 2, 2500));
+    clickers.push(new createClicker("FarmClicker",   200, 25, 0, 5, 5500));
+    clickers.push(new createClicker("AnotherClicker",500, 25, 0, 10, 6000));
+    clickers.push(new createClicker("ExtraClicker",1000, 25, 0, 20, 6500));
     
-    //intervals
-    this.autoLoop = setInterval(autoClicker.update, autoClicker.delay);
-    this.betterLoop = setInterval(betterClicker.update, betterClicker.delay);
-    this.farmLoop = setInterval(farmClicker.update, farmClicker.delay);
     
-    // info
+    // Intervals
+    for(var i = 0; i < clickers.length; i++) {
+    setInterval(clickers[i].update, clickers[i].delay);
+    }
+    // Info
     console.log("LOADED \nVersion: " + version);
     
 }
@@ -50,46 +49,74 @@ function update()
     updateTxt();
 }
 
+function warning(text, time) 
+{
+    document.getElementById("warning").style.display = 'block';   
+    document.getElementById("warning").innerHTML = text;
+    setTimeout(function(){ 
+        document.getElementById("warning").style.display = 'none';
+        document.getElementById("warning").innerHTML = "";
+    }, time);
+}
+
+function updateTxt() 
+{
+    
+    document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
+    for(var i = 0; i < clickers.length; i++) {
+    document.getElementById("clicker" + i).innerHTML = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
+    document.getElementById("delay" + i).innerHTML = "Delay: " + clickers[i].delay + "ms " + clickers[i].delay/1000 + "s";
+    document.getElementById("cost" + i).innerHTML = "Cost: " + clickers[i].cost;
+    }
+}
+
+
+// Add click
 function addClick(amount,name) 
 {
     clicks = clicks + amount;
     
-    if(debug == true){console.log("addclick." + name + "\n" + amount);}
+    if(debug == true){console.log("addclick." + name + "\n" + amount);} // Debug
     
     if(amount != 0) {
         document.getElementById("plus").innerHTML = "+" + amount;
         setTimeout(function(){ 
         document.getElementById("plus").innerHTML = "";
-        }, 1000);
+        }, 500);
     }
 }
 
+
+// Create clicker
 function createClicker(name, cost, multi, cps, cpsConst, delay) 
 {
-    this.name = name; // name
-    this.cost = cost; // cost
-    this.multi = multi; // cost multiplier
-    this.cps = cps; // cps
-    this.delay = delay; // delay
+    this.name = name; // Name
+    this.cost = cost; // Cost
+    this.multi = multi; // Cost multiplier
+    this.cps = cps; // Cps
+    this.delay = delay; // Delay
     
     this.update = function() 
     {
-        this.cps = cps;
+        this.cps = cps; // Cps fix
         if (items.length > 0) {
-            addClick(cps, name);
+            addClick(cps, name); // Click adding
         }
     },
     this.changeCost = function() 
     {
-        this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1;
-        cps = cps + cpsConst;
-        if(debug == true){console.log("changeCost." + name + "\ncpsConst: " + cpsConst + "\ncps: " + cps);}
+        this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1; // Cost increase
+        cps = cps + cpsConst; // Cps increase
+        if(debug == true){console.log("changeCost." + name + "\ncpsConst: " + cpsConst + "\ncps: " + cps);} // Debug
         
     }
 }
 
+// Buying items
+
 function buyItem(item) 
 {
+    item = clickers[item];
     var cost = item.cost;
     var multi = item.multi;
     var name = item.name;
@@ -106,54 +133,19 @@ function buyItem(item)
     }
 }
 
-function warning(text, time) 
-{
-    document.getElementById("warning").style.display = 'block';   
-    document.getElementById("warning").innerHTML = text;
-    setTimeout(function(){ 
-    document.getElementById("warning").style.display = 'none';
-    document.getElementById("warning").innerHTML = "";
-    }, time);
-}
-
-function updateTxt() 
-{
-    document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
-    
-    // autoclicker
-    document.getElementById("auto").innerHTML = "Autoclickers: " + items.filter(function(x){return x=="autoClicker"}).length;
-    document.getElementById("delay0").innerHTML = "Delay: " + autoClicker.delay + "ms " + autoClicker.delay/1000 + "s";
-    document.getElementById("cost0").innerHTML = "Cost: " + autoClicker.cost;
-    
-    // betterclicker
-    document.getElementById("better").innerHTML = "Betterclickers: " + items.filter(function(x){return x=="betterClicker"}).length;
-    document.getElementById("delay1").innerHTML = "Delay: " + betterClicker.delay + "ms " + betterClicker.delay/1000 + "s";
-    document.getElementById("cost1").innerHTML = "Cost: " + betterClicker.cost;
-    // farmclicker
-    document.getElementById("farm").innerHTML = "Farmclickers: " + items.filter(function(x){return x=="farmClicker"}).length;
-    document.getElementById("delay2").innerHTML = "Delay: " + farmClicker.delay + "ms " + farmClicker.delay/1000 + "s";
-    document.getElementById("cost2").innerHTML = "Cost: " + farmClicker.cost;
-}
-
+// Start game
 window.onload = startGame();
 
 
-
-
-const clickerItems = [
-    {name: autoClicker.name, delay: autoClicker.delay, cost: autoClicker.cost, costConst: '0', delayConst: '0'},
-    {name: betterClicker.name, delay: betterClicker.delay, cost: betterClicker.cost, costConst: '1', delayConst: '1'},
-    {name: farmClicker.name, delay: farmClicker.delay, cost: farmClicker.cost, costConst: '2', delayConst: '2'}
-];
-
+// Buy menu generation
+for(var i = 0; i < clickers.length; i++) {
 const markup = `
-    ${clickerItems.map(item => `
     <div class="buyItem">
-        <button onclick="buyItem(${item.name})" class="buyBtn">Buy ${item.name}</button>
-        <p id="delay${item.delayConst++}">Delay: ${item.delay}</p>
-        <p id="cost${item.costConst++}">Cost: ${item.cost}</p>
+        <button onclick="buyItem(${i})" class="buyBtn mdc-elevation--z8 mdc-ripple-surface">Buy ${clickers[i].name}</button>
+        <p id="delay${i}">Delay: ${clickers[i].delay}</p>
+        <p id="cost${i}">Cost: ${clickers[i].cost}</p>
      </div>
-    `).join('')}
 `;
+document.getElementById("clickerDiv").innerHTML += markup;
+}
 
-document.getElementById("clickerDiv").innerHTML = markup;

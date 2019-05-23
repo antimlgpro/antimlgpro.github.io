@@ -1,53 +1,112 @@
 <html>
 <head>
   <title>Square clickers 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+    
+    .dark-primary-color    { background: #5c007a; }
+    .default-primary-color { background: #8e24aa; }
+    .light-primary-color   { background: #c158dc; }
+    .dark-accent-color     { background: #4f9b94; }
+    .accent-color          { background: #80ccc4; }
+    .light-accent-color    { background: #b2fff7; }
+
   
-  /* Separate objects */
+  /* Text */
   body {
     overflow: hidden;
+    margin: -5px;
   }
   
   p {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    color: black;
+    font-weight: 500;
   }
   
-  .mainBtn {
-    width: 100px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    position: relative;
-    background-color: #4db6ac;
-    border: 2px solid #00867d;
+  h4 {
+    margin: 0px;
+    text-align: center;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
-    border-radius: 2px;
-    transition-duration: 0.4s;
-  }
-  .mainBtn:hover {
-    box-shadow: 15px 11px 36px -12px rgba(0,0,0,0.75);
+    font-size: 16px;
+    font-weight: 500;
+    background: #8e24aa;
+    position: sticky;
+    color: black;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid #BDBDBD;
+    border-radius: 5px 5px 0px 0px;
   }
   
+    
   .warning {
     font-family: 'Roboto', sans-serif;
     position: absolute;
   }
   
+  /* Main Button */
+  .mainBtn {
+    width: 150px !important;
+    height: 150px !important;
+    left: 20%;
+    position: relative;
+    //border: 2px solid #BDBDBD;
+    border: none;
+    background: #80ccc4 !important;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    outline: none;
+    margin-top: 35px;
+  }
+  .mainBtn:hover {
+    background: #b2fff7;
+    
+  }
+
+  /* Material design */
+  
+  .background {
+    height: 100%;
+    //background: #B2EBF2;
+    margin: -10px;
+  }
+  
+  .nav-bar {
+    height: 15%;
+    margin: -5px -10px -10px -10px;
+    position: relative;
+    background: #8e24aa;
+  }
+  .fab {
+    position:fixed;
+    top: 3.7rem;
+    left: 23rem;
+    background: #80ccc4;
+  }
+  
   /*Values menu */
   
   .valueCont {
-    border: 2px solid #00867d;
-    background-color: #4db6ac;
+    background: #c158dc;
     border-radius: 5px;
-    width: 23%;
-    box-shadow: 15px 11px 36px -9px rgba(0,0,0,0.75);
+    width: 18%;
+    margin: 35px;
+    float: left;
   }
   
   .clicksCont {
-    column-count: 2;
+    column-count: 1;
     width: 100%;
+    white-space:nowrap;
+    margin-bottom: -40px;
   }
   
   .clicks {
@@ -55,59 +114,77 @@
   }
   
   .plus {
-    color: rgba(0,0,0,0.5);
-    float:left;
-    margin-left: 2px;
+    color: black;
+    float:right;
   }
   
   /* Buy menu */
     
   .itemsDiv {
-    border: 2px solid #00867d;
+    //border: 2px solid #BDBDBD;
     border-radius: 5px;
     padding: 0px;
     width: 20%;
-    height:100%;
     overflow-y: scroll;
     overflow-x: hidden;
     float: right;
-    margin-top: -14.5%;
-    height: fit-content;
-    box-shadow: 15px 11px 36px -9px rgba(0,0,0,0.75);
+    margin: 35px;
+    height: 69%;
   }
   
   .buyItem {
-    border-bottom: 2px solid #00867d;
+    border-bottom: 2px solid #BDBDBD;
     border-radius: 2px;
-    width: 100%;
+    width: fit-container;
     padding: 5px 5px 0px 5px;
     height: fit-content;
-    background-color: #4db6ac;
-    margin-bottom: 5px;
+    background: #c158dc;
+    //margin-bottom: 5px;
   }
     
   .buyBtn {
-    background-color: #bdbdbd;
+    background: #80ccc4;
     border: none;
     font-family: 'Roboto', sans-serif;
     border-radius: 2px;
     font-size: 16px;
+    height: 25px;
   }
   
 </style>
-</head>
 <body oncontextmenu="return false;">
-    <button class="mainBtn" onclick="addClick(1, 'button');"></button>
-    <div class="valueCont">
-        <div class="clicksCont"><p id="clicks" class="clicks">Clicks: 0</p><p id="plus" class="plus"></p></div>
-        <p id="auto">Autoclickers: 0</p>
-        <p id="better">Betterclickers: 0</p>
-        <p id="farm">Farmclickers: 0</p>
-        <h3 id="warning" class="warning"></h3>
-    </div>
-        <div class="itemsDiv" id="clickerDiv">
-        
+    <div class="nav-bar mdc-elevation--z4">
+            <button class="fab mdc-fab mdc-fab">
+                <span class="material-icons mdc-fab__icon">menu</span>
+            </button>
         </div>
+    <div class="background">
+    <button class="mainBtn mdc-elevation--z8 mdc-ripple-surface mdc-button" onclick="addClick(1, 'button');"></button>
+        <div class="valueCont mdc-elevation--z8">
+            <h4 style="border-bottom: 2px solid #BDBDBD;">Items menu</h4>
+                <div class="clicksCont">
+                    <p id="clicks" class="clicks" style="margin-left: 5px;">Clicks: 0</p>
+                    <p id="plus" class="plus"></p>
+                </div>
+            <br />
+            <div style="margin-left: 5px;">
+                <p id="clicker0">Autoclickers: 0</p>
+                <p id="clicker1">Betterclickers: 0</p>
+                <p id="clicker2">Farmclickers: 0</p>
+                <p id="clicker3">Anotherclickers: 0</p>
+                <p id="clicker4">Extraclickers: 0</p>
+            </div>
+            <h3 id="warning" class="warning"></h3>
+        </div>
+        <div class="itemsDiv mdc-elevation--z8" id="clickerDiv">
+            <h4>Buy menu</h4>
+        </div>
+    </div>
 </body>
 <script src="clicker.js"></script>
+<script>
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.buyBtn'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mainBtn'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.fab'));
+</script>
 </html>
