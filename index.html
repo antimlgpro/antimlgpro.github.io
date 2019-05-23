@@ -37,12 +37,12 @@
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    background: #8e24aa;
+    background: white;
     position: sticky;
     color: black;
     top: 0;
     z-index: 1;
-    border-bottom: 2px solid #BDBDBD;
+    //border-bottom: 2px solid #BDBDBD;
     border-radius: 5px 5px 0px 0px;
   }
   
@@ -75,7 +75,6 @@
   
   .background {
     height: 100%;
-    //background: #B2EBF2;
     margin: -10px;
   }
   
@@ -87,70 +86,76 @@
   }
   .fab {
     position:fixed;
-    top: 3.7rem;
-    left: 23rem;
+    bottom: 0.5rem;
+    right: 1rem;
     background: #80ccc4;
   }
   
   /*Values menu */
-  
-  .valueCont {
-    background: #c158dc;
-    border-radius: 5px;
-    width: 18%;
+  .value-card {
+    float:left;
+    width: 20%;
     margin: 35px;
-    float: left;
+    height: 68%;
   }
   
-  .clicksCont {
+  .value-text {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+  }
+  
+  .value-clicks-container {
     column-count: 1;
     width: 100%;
     white-space:nowrap;
-    margin-bottom: -40px;
   }
   
-  .clicks {
-    float:left;
-  }
-  
-  .plus {
-    color: black;
-    float:right;
-  }
-  
-  /* Buy menu */
-    
-  .itemsDiv {
-    //border: 2px solid #BDBDBD;
-    border-radius: 5px;
-    padding: 0px;
-    width: 20%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    float: right;
-    margin: 35px;
-    height: 69%;
-  }
-  
-  .buyItem {
-    border-bottom: 2px solid #BDBDBD;
-    border-radius: 2px;
-    width: fit-container;
-    padding: 5px 5px 0px 5px;
-    height: fit-content;
-    background: #c158dc;
-    //margin-bottom: 5px;
-  }
-    
-  .buyBtn {
-    background: #80ccc4;
-    border: none;
+  .value-clicks {
+    float: left;
+    margin: 10px;
     font-family: 'Roboto', sans-serif;
-    border-radius: 2px;
-    font-size: 16px;
-    height: 25px;
+  }
+  .value-plus {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+  }
+  /* Buy menu */
+
+   .buy-card {
+    float:right;
+    width: 25%;
+    margin: 35px;
+    height: 68%;
+    overflow: auto;
   }
   
+  .buy-list {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .buy-list-item {
+    height: fit-content;
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 2px;
+  }
+  
+  .buy-list-text {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .buy-list-btn {
+    width: fit-content;
+    display: flex;
+    justify-content: right;
+    margin-left: 30%;
+  }
+  
+  .buy-list-btn-label {
+    font-size: 13px;
+  }
 </style>
 <body oncontextmenu="return false;">
     <div class="nav-bar mdc-elevation--z4">
@@ -159,32 +164,29 @@
             </button>
         </div>
     <div class="background">
-    <button class="mainBtn mdc-elevation--z8 mdc-ripple-surface mdc-button" onclick="addClick(1, 'button');"></button>
-        <div class="valueCont mdc-elevation--z8">
-            <h4 style="border-bottom: 2px solid #BDBDBD;">Items menu</h4>
-                <div class="clicksCont">
-                    <p id="clicks" class="clicks" style="margin-left: 5px;">Clicks: 0</p>
-                    <p id="plus" class="plus"></p>
-                </div>
-            <br />
-            <div style="margin-left: 5px;">
-                <p id="clicker0">Autoclickers: 0</p>
-                <p id="clicker1">Betterclickers: 0</p>
-                <p id="clicker2">Farmclickers: 0</p>
-                <p id="clicker3">Anotherclickers: 0</p>
-                <p id="clicker4">Extraclickers: 0</p>
+        <button class="mainBtn mdc-elevation--z8 mdc-ripple-surface mdc-button" onclick="addClick(1, 'button');"></button>
+        <div class="mdc-card value-card mdc-elevation--z8">
+            <h4 class="mdc-elevation--z4">Buy menu</h4>
+            <div class="value-clicks-container">
+                <span class="value-clicks" id="clicks">Clicks: </span>
+                <span class="value-plus" id="plus"></span>
             </div>
-            <h3 id="warning" class="warning"></h3>
+            <span class="value-text" id="clicker0">Clicker: </span>
+            <span class="value-text" id="clicker1">Clicker: </span>
+            <span class="value-text" id="clicker2">Clicker: </span>
         </div>
-        <div class="itemsDiv mdc-elevation--z8" id="clickerDiv">
-            <h4>Buy menu</h4>
+       <h3 id="warning" class="warning"></h3>
+        <div class="mdc-card buy-card mdc-elevation--z8">
+            <h4 class="mdc-elevation--z4">Items menu</h4>
+            <ul class="mdc-list--four-line buy-list" id="buy-list">
+             
+            </ul>
         </div>
     </div>
 </body>
 <script src="clicker.js"></script>
 <script>
-    mdc.ripple.MDCRipple.attachTo(document.querySelector('.buyBtn'));
-    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mainBtn'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
     mdc.ripple.MDCRipple.attachTo(document.querySelector('.fab'));
 </script>
 </html>

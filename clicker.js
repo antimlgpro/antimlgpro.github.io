@@ -10,7 +10,7 @@ var items = [];
 var clickers = [];
 
 // version
-var version = "2.2.0";
+var version = "2.3.0";
 
 // debug
 var debug = false;
@@ -20,11 +20,11 @@ function startGame()
     game.start();
     
     // Items (name, cost, multi, cps, cpsConst, delay)
-    clickers.push(new createClicker("AutoClicker",   15,  15, 0, 1, 5000));
-    clickers.push(new createClicker("BetterClicker", 50,  20, 0, 2, 2500));
-    clickers.push(new createClicker("FarmClicker",   200, 25, 0, 5, 5500));
-    clickers.push(new createClicker("AnotherClicker",500, 25, 0, 10, 6000));
-    clickers.push(new createClicker("ExtraClicker",1000, 25, 0, 20, 6500));
+    clickers.push(new createClicker("Clicker1",   15,  15, 0, 1, 5000));
+    clickers.push(new createClicker("Clicker2", 50,  20, 0, 2, 2500));
+    clickers.push(new createClicker("Clicker3",   200, 25, 0, 5, 5500));
+    clickers.push(new createClicker("Clicker4",500, 25, 0, 10, 6000));
+    clickers.push(new createClicker("Clicker5",1000, 25, 0, 20, 6500));
     
     
     // Intervals
@@ -62,11 +62,11 @@ function warning(text, time)
 function updateTxt() 
 {
     
-    document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
+    document.getElementById("clicks").textContent = "Clicks: " + clicks;
     for(var i = 0; i < clickers.length; i++) {
-    document.getElementById("clicker" + i).innerHTML = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
-    document.getElementById("delay" + i).innerHTML = "Delay: " + clickers[i].delay + "ms " + clickers[i].delay/1000 + "s";
-    document.getElementById("cost" + i).innerHTML = "Cost: " + clickers[i].cost;
+        document.getElementById("clicker" + i).textContent = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
+        document.getElementById("delay" + i).textContent = "Delay: " + clickers[i].delay + "ms " + clickers[i].delay/1000 + "s";
+        document.getElementById("cost" + i).textContent = "Cost: " + clickers[i].cost;
     }
 }
 
@@ -140,12 +140,18 @@ window.onload = startGame();
 // Buy menu generation
 for(var i = 0; i < clickers.length; i++) {
 const markup = `
-    <div class="buyItem">
-        <button onclick="buyItem(${i})" class="buyBtn mdc-elevation--z8 mdc-ripple-surface">Buy ${clickers[i].name}</button>
-        <p id="delay${i}">Delay: ${clickers[i].delay}</p>
-        <p id="cost${i}">Cost: ${clickers[i].cost}</p>
-     </div>
+        <li class="mdc-list-item buy-list-item">
+            <span class="mdc-list-item__text">
+                <span class="mdc-list-item__primary-text buy-list-text">${clickers[i].name}</span>
+                <span class="mdc-list-item__secondary-text buy-list-text" id="cost${i}">Cost: ${clickers[i].cost}</span>
+                <span class="mdc-list-item__secondary-text buy-list-text" id="delay${i}">Delay: ${clickers[i].delay}</span>
+                <span class="mdc-list-item__secondary-text buy-list-text" id="cps${i}">Cps: ${clickers[i].cps}</span>
+            </span>
+            <button class="mdc-button buy-list-btn mdc-elevation--z2">
+                <span class="mdc-button__label buy-list-btn-label" onclick(buyItem(${clickers[i]}))>Buy ${clickers[i].name}</span>
+            </button>
+    </li>
 `;
-document.getElementById("clickerDiv").innerHTML += markup;
+document.getElementById("buy-list").innerHTML += markup;
 }
 
