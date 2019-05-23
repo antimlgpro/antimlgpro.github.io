@@ -8,7 +8,7 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
-    
+
     .dark-primary-color    { background: #5c007a; }
     .default-primary-color { background: #8e24aa; }
     .light-primary-color   { background: #c158dc; }
@@ -16,20 +16,20 @@
     .accent-color          { background: #80ccc4; }
     .light-accent-color    { background: #b2fff7; }
 
-  
+
   /* Text */
   body {
     overflow: hidden;
     margin: -5px;
   }
-  
+
   p {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: black;
     font-weight: 500;
   }
-  
+
   h4 {
     margin: 0px;
     text-align: center;
@@ -42,23 +42,21 @@
     color: black;
     top: 0;
     z-index: 1;
-    //border-bottom: 2px solid #BDBDBD;
     border-radius: 5px 5px 0px 0px;
   }
-  
-    
+
+
   .warning {
     font-family: 'Roboto', sans-serif;
     position: absolute;
   }
-  
+
   /* Main Button */
   .mainBtn {
     width: 150px !important;
     height: 150px !important;
     left: 20%;
     position: relative;
-    //border: 2px solid #BDBDBD;
     border: none;
     background: #80ccc4 !important;
     font-family: 'Roboto', sans-serif;
@@ -68,16 +66,16 @@
   }
   .mainBtn:hover {
     background: #b2fff7;
-    
+
   }
 
   /* Material design */
-  
+
   .background {
     height: 100%;
     margin: -10px;
   }
-  
+
   .nav-bar {
     height: 15%;
     margin: -5px -10px -10px -10px;
@@ -90,7 +88,7 @@
     right: 1rem;
     background: #80ccc4;
   }
-  
+
   /*Values menu */
   .value-card {
     float:left;
@@ -98,18 +96,18 @@
     margin: 35px;
     height: 68%;
   }
-  
+
   .value-text {
     font-family: 'Roboto', sans-serif;
     margin: 10px;
   }
-  
+
   .value-clicks-container {
     column-count: 1;
     width: 100%;
     white-space:nowrap;
   }
-  
+
   .value-clicks {
     float: left;
     margin: 10px;
@@ -129,30 +127,30 @@
     height: 68%;
     overflow: auto;
   }
-  
+
   .buy-list {
     width: 100%;
     padding: 0px;
     margin: 0px;
   }
-  
+
   .buy-list-item {
     height: fit-content;
     border-bottom: 1px solid #BDBDBD;
     padding-bottom: 2px;
   }
-  
+
   .buy-list-text {
     font-family: 'Roboto', sans-serif;
   }
-  
+
   .buy-list-btn {
     width: fit-content;
     display: flex;
     justify-content: right;
     margin-left: 30%;
   }
-  
+
   .buy-list-btn-label {
     font-size: 13px;
   }
@@ -174,12 +172,14 @@
             <span class="value-text" id="clicker0">Clicker: </span>
             <span class="value-text" id="clicker1">Clicker: </span>
             <span class="value-text" id="clicker2">Clicker: </span>
+            <span class="value-text" id="clicker3">Clicker: </span>
+            <span class="value-text" id="clicker4">Clicker: </span>
         </div>
        <h3 id="warning" class="warning"></h3>
         <div class="mdc-card buy-card mdc-elevation--z8">
             <h4 class="mdc-elevation--z4">Items menu</h4>
             <ul class="mdc-list--four-line buy-list" id="buy-list">
-             
+
             </ul>
         </div>
     </div>
