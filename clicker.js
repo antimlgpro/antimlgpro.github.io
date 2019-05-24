@@ -15,54 +15,59 @@ var version = "2.3.0";
 // debug
 var debug = false;
 
-function startGame() 
+function startGame()
 {
     game.start();
-    
+
     // Items (name, cost, multi, cps, cpsConst, delay)
-    clickers.push(new createClicker("Clicker1",   15,  15, 0, 1, 5000));
-    clickers.push(new createClicker("Clicker2", 50,  20, 0, 2, 2500));
-    clickers.push(new createClicker("Clicker3",   200, 25, 0, 5, 5500));
+    clickers.push(new createClicker("Clicker1",15,  15, 0, 1, 5000));
+    clickers.push(new createClicker("Clicker2",50,  20, 0, 2, 2500));
+    clickers.push(new createClicker("Clicker3",200, 25, 0, 5, 5500));
     clickers.push(new createClicker("Clicker4",500, 25, 0, 10, 6000));
     clickers.push(new createClicker("Clicker5",1000, 25, 0, 20, 6500));
-    
-    
+    clickers.push(new createClicker("Clicker6",1000, 25, 0, 20, 6500));
+    clickers.push(new createClicker("Clicker7",1000, 25, 0, 20, 6500));
+    clickers.push(new createClicker("Clicker8",1000, 25, 0, 20, 6500));
+    clickers.push(new createClicker("Clicker9",1000, 25, 0, 20, 6500));
+    clickers.push(new createClicker("Clicker10",1000, 25, 0, 20, 6500));
+
+
     // Intervals
     for(var i = 0; i < clickers.length; i++) {
     setInterval(clickers[i].update, clickers[i].delay);
-    
+
     }
     // Info
     console.log("LOADED \nVersion: " + version);
-    
+
 }
 
 var game = {
-    
-    start : function() 
+
+    start : function()
     {
         this.interval = setInterval(update, 10);
     }
 }
 
-function update() 
-{   
+function update()
+{
     updateTxt();
 }
 
-function warning(text, time) 
+function warning(text, time)
 {
-    document.getElementById("warning").style.display = 'block';   
+    document.getElementById("warning").style.display = 'block';
     document.getElementById("warning").innerHTML = text;
-    setTimeout(function(){ 
+    setTimeout(function(){
         document.getElementById("warning").style.display = 'none';
         document.getElementById("warning").innerHTML = "";
     }, time);
 }
 
-function updateTxt() 
+function updateTxt()
 {
-    
+
     document.getElementById("clicks").textContent = "Clicks: " + clicks;
     for(var i = 0; i < clickers.length; i++) {
         document.getElementById("clicker" + i).textContent = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
@@ -74,15 +79,15 @@ function updateTxt()
 
 
 // Add click
-function addClick(amount,name) 
+function addClick(amount,name)
 {
     clicks = clicks + amount;
-    
+
     if(debug == true){console.log("addclick." + name + "\n" + amount);} // Debug
-    
+
     if(amount != 0) {
         document.getElementById("plus").innerHTML = "+" + amount;
-        setTimeout(function(){ 
+        setTimeout(function(){
         document.getElementById("plus").innerHTML = "";
         }, 500);
     }
@@ -90,7 +95,7 @@ function addClick(amount,name)
 
 
 // Create clicker
-function createClicker(name, cost, multi, cps, cpsConst, delay) 
+function createClicker(name, cost, multi, cps, cpsConst, delay)
 {
     this.name = name; // Name
     this.cost = cost; // Cost
@@ -98,39 +103,39 @@ function createClicker(name, cost, multi, cps, cpsConst, delay)
     this.cps = cps; // Cps
     this.delay = delay; // Delay
     this.cpsConst = cpsConst;
-    
-    this.update = function() 
+
+    this.update = function()
     {
         this.cps = cps; // Cps fix
         if (items.length > 0) {
             addClick(cps, name); // Click adding
         }
     },
-    this.changeCost = function() 
+    this.changeCost = function()
     {
         this.cost = (this.cost + (this.multi / 100) * this.cost).toFixed(0) * 1; // Cost increase
         cps = cps + cpsConst; // Cps increase
         if(debug == true){console.log("changeCost." + name + "\ncpsConst: " + cpsConst + "\ncps: " + cps);} // Debug
-        
+
     }
 }
 
 // Buying items
 
-function buyItem(item) 
+function buyItem(item)
 {
     item = clickers[item];
     var cost = item.cost;
     var multi = item.multi;
     var name = item.name;
-    
-    if (clicks >= cost) 
+
+    if (clicks >= cost)
     {
         clicks = clicks - cost;
         items.push(name);
         item.changeCost();
-    } 
-    else 
+    }
+    else
     {
         warning("You need more clicks!", 1000)
     }
@@ -156,11 +161,10 @@ const markup = `
     </li>
 `;
 
-const markup2 = ` 
+const markup2 = `
     <span class="value-text" id="clicker${i}">Clicker: </span>
 `;
 
 document.getElementById("buy-list").innerHTML += markup;
 document.getElementById("value-card-container").innerHTML += markup2;
 }
-
