@@ -67,7 +67,8 @@ function updateTxt()
     for(var i = 0; i < clickers.length; i++) {
         document.getElementById("clicker" + i).textContent = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
         document.getElementById("delay" + i).textContent = "Delay: " + (clickers[i].delay/1000).toFixed(0) + "s";
-        document.getElementById("cost" + i).textContent = "Cost: " + clickers[i].cost
+        document.getElementById("cost" + i).textContent = "Cost: " + clickers[i].cost;
+        document.getElementById("cps" + i).textContent = "Cps: " + clickers[i].cpsConst;
     }
 }
 
@@ -149,7 +150,7 @@ const markup = `
                 <span class="mdc-list-item__secondary-text buy-list-text" id="delay${i}">Delay: </span>
                 <span class="mdc-list-item__secondary-text buy-list-text" id="cps${i}">Cps: </span>
             </span>
-            <button class="mdc-button buy-list-btn mdc-elevation--z2" data-mdc-auto-init="MDCRipple" onclick="buyItem(${i})">
+            <button class="mdc-button mdc-button--raised buy-list-btn" data-mdc-auto-init="MDCRipple" onclick="buyItem(${i})">
                 <span class="mdc-button__label buy-list-btn-label">Buy ${clickers[i].name}</span>
             </button>
     </li>
