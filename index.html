@@ -1,12 +1,9 @@
 <html>
 <head>
   <title>Square clickers 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>  
 </head>
 
 <style>
@@ -44,8 +41,7 @@
     position: sticky;
     color: black;
     top: 0;
-    z-index: 1;
-    //border-bottom: 2px solid #BDBDBD;
+    z-index: 3;
     border-radius: 5px 5px 0px 0px;
   }
   
@@ -53,16 +49,16 @@
   .warning {
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    left: 50%;
-    top:50%
+    right: 45vw;
+    top: 50vh;
   }
   
   /* Main Button */
   .mainBtn {
     width: 150px !important;
     height: 150px !important;
-    left: 20%;
-    position: relative;
+    left: 43%;
+    position: absolute;
     //border: 2px solid #BDBDBD;
     border: none;
     background: #80ccc4 !important;
@@ -79,34 +75,28 @@
   /* Material design */
   
   .background {
-    height: 100%;
-    margin: -10px;
+    height: 50%;
+    margin-top: 50px;
   }
   
   .nav-bar {
-    height: 15%;
-    margin: -5px -10px -10px -10px;
-    position: relative;
-    background: #8e24aa;
-  }
-  .fab {
-    position:fixed;
-    bottom: 0.5rem;
-    right: 1rem;
-    background: #80ccc4;
+    margin-top: -50px;
+    width: 102%
   }
   
   /*Values menu */
   .value-card {
     float:left;
-    width: 20%;
+    width: 20vw;
     margin: 35px;
-    height: 68%;
+    height: fit-content;
   }
   
   .value-text {
     font-family: 'Roboto', sans-serif;
     margin: 10px;
+    margin-top: 5vh;
+    font-size: 1.2vw;
   }
   
   .value-clicks-container {
@@ -119,20 +109,22 @@
     float: left;
     margin: 10px;
     font-family: 'Roboto', sans-serif;
+    font-size: 1.2vw;
   }
   .value-plus {
     float: right;
     font-family: 'Roboto', sans-serif;
     margin: 10px;
+    font-size: 1.2vw;
   }
   /* Buy menu */
 
    .buy-card {
     float:right;
-    width: 25%;
+    width: 25vw;
     margin: 35px;
-    height: 68%;
-    overflow: auto;
+    height: 60vh;
+    overflow: scroll;
   }
   
   .buy-list {
@@ -145,6 +137,7 @@
     height: fit-content;
     border-bottom: 1px solid #BDBDBD;
     padding-bottom: 2px;
+    z-index: 2;
   }
   
   .buy-list-text {
@@ -153,9 +146,8 @@
   
   .buy-list-btn {
     width: fit-content;
-    display: flex;
-    justify-content: right;
-    margin-left: 30%;
+    position: absolute;
+    right: 20px;
   }
   
   .buy-list-btn-label {
@@ -163,40 +155,35 @@
   }
 </style>
 <body oncontextmenu="return false;">
-    <div class="nav-bar mdc-elevation--z4">
-            <button class="fab mdc-fab mdc-fab">
-                <span class="material-icons mdc-fab__icon">menu</span>
-            </button>
+    <header class="mdc-top-app-bar nav-bar" data-mdc-auto-init="MDCTopAppBar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <a href="" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                <span class="mdc-top-app-bar__title">Menu</span>
+            </section>
         </div>
+    </header>
     <div class="background">
-        <button class="mainBtn mdc-elevation--z8 mdc-ripple-surface mdc-button" onclick="addClick(1, 'button');"></button>
-        <div class="mdc-card value-card mdc-elevation--z8">
+        <button class="mainBtn mdc-elevation--z8 mdc-button " data-mdc-auto-init="MDCRipple" onclick="addClick(1, 'button');"></button>
+        <div class="mdc-card value-card mdc-elevation--z8" id="value-card-container">
             <h4 class="mdc-elevation--z4">Items menu</h4>
             <div class="value-clicks-container">
                 <span class="value-clicks" id="clicks">Clicks: </span>
                 <span class="value-plus" id="plus"></span>
             </div>
-            <span class="value-text" id="clicker0">Clicker: </span>
-            <span class="value-text" id="clicker1">Clicker: </span>
-            <span class="value-text" id="clicker2">Clicker: </span>
-            <span class="value-text" id="clicker3">Clicker: </span>
-            <span class="value-text" id="clicker4">Clicker: </span>
         </div>
-        <p id="warning" class="warning">jhugug</p>
+        <p id="warning" class="warning"></p>
+        
         <div class="mdc-card buy-card mdc-elevation--z8">
             <h4 class="mdc-elevation--z4">Buy menu</h4>
             <ul class="mdc-list--four-line buy-list" id="buy-list">
-             
             </ul>
         </div>
-          <amp-auto-ads type="adsense"
-                  data-ad-client="ca-pub-8803052941602163">
-    </amp-auto-ads>
     </div>
 </body>
 <script src="clicker.js"></script>
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <script>
-    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
-    mdc.ripple.MDCRipple.attachTo(document.querySelector('.fab'));
+    mdc.autoInit();
 </script>
 </html>

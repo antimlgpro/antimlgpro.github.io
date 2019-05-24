@@ -30,6 +30,7 @@ function startGame()
     // Intervals
     for(var i = 0; i < clickers.length; i++) {
     setInterval(clickers[i].update, clickers[i].delay);
+    
     }
     // Info
     console.log("LOADED \nVersion: " + version);
@@ -65,7 +66,7 @@ function updateTxt()
     document.getElementById("clicks").textContent = "Clicks: " + clicks;
     for(var i = 0; i < clickers.length; i++) {
         document.getElementById("clicker" + i).textContent = clickers[i].name + ": " + items.filter(function(x){return x==clickers[i].name}).length;
-        document.getElementById("delay" + i).textContent = "Delay: " + clickers[i].delay + "ms "; /* + clickers[i].delay/1000 + "s";*/
+        document.getElementById("delay" + i).textContent = "Delay: " + (clickers[i].delay/1000).toFixed(0) + "s";
         document.getElementById("cost" + i).textContent = "Cost: " + clickers[i].cost
     }
 }
@@ -95,6 +96,7 @@ function createClicker(name, cost, multi, cps, cpsConst, delay)
     this.multi = multi; // Cost multiplier
     this.cps = cps; // Cps
     this.delay = delay; // Delay
+    this.cpsConst = cpsConst;
     
     this.update = function() 
     {
@@ -144,14 +146,20 @@ const markup = `
             <span class="mdc-list-item__text">
                 <span class="mdc-list-item__primary-text buy-list-text">${clickers[i].name}</span>
                 <span class="mdc-list-item__secondary-text buy-list-text" id="cost${i}">Cost: ${clickers[i].cost}</span>
-                <span class="mdc-list-item__secondary-text buy-list-text" id="delay${i}">Delay: ${clickers[i].delay}</span>
-                <span class="mdc-list-item__secondary-text buy-list-text" id="cps${i}">Cps: ${clickers[i].cps}</span>
+                <span class="mdc-list-item__secondary-text buy-list-text" id="delay${i}">Delay: </span>
+                <span class="mdc-list-item__secondary-text buy-list-text" id="cps${i}">Cps: </span>
             </span>
-            <button class="mdc-button buy-list-btn mdc-elevation--z2">
-                <span class="mdc-button__label buy-list-btn-label" onclick(buyItem(${clickers[i]}))>Buy ${clickers[i].name}</span>
+            <button class="mdc-button buy-list-btn mdc-elevation--z2" data-mdc-auto-init="MDCRipple" onclick="buyItem(${i})">
+                <span class="mdc-button__label buy-list-btn-label">Buy ${clickers[i].name}</span>
             </button>
     </li>
 `;
+
+const markup2 = ` 
+    <span class="value-text" id="clicker${i}">Clicker: </span>
+`;
+
 document.getElementById("buy-list").innerHTML += markup;
+document.getElementById("value-card-container").innerHTML += markup2;
 }
 
