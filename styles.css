@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+/*:root {
+    --dark-primary-color:    #5c007a;
+    --default-primary-color: #8e24aa;
+    --light-primary-color:   #c158dc;
+    --dark-accent-color:     #4f9b94;
+    --accent-color:          #80ccc4;
+    --light-accent-color:    #b2fff7;
+  }
+*/
+
+
+/* Text */
+
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+}
+
+h4 {
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background: white;
+    position: sticky;
+    color: black;
+    top: 0;
+    z-index: 3;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.warning {
+    font-family: 'Roboto', sans-serif;
+    margin-left: calc(200px * 3.15);
+    width: 200px;
+}
+
+
+/* Main Button */
+
+.mainBtn {
+    margin-right: 150px;
+    margin-left: calc(150px * 2);
+    margin-top: 35px;
+    width: 150px !important;
+    height: 150px !important;
+    background: var(--default-primary-color);
+}
+
+
+/* Material design */
+
+.background {
+    height: 50%;
+    margin-top: 50px;
+}
+
+.nav-bar {
+    margin-top: -50px;
+    width: 100%
+}
+
+
+/*Values menu */
+
+.value-card {
+    float: left;
+    width: 20vw;
+    margin: 35px;
+    height: 60vh;
+}
+
+.value-text {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    margin-top: 30px;
+    font-size: 1.2vw;
+}
+
+.value-clicks-container {
+    column-count: 1;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.value-clicks {
+    float: left;
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2vw;
+    margin-bottom: -10px;
+}
+
+.value-plus {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    font-size: 1.2vw;
+    margin-bottom: -10px;
+}
+
+
+/* Buy menu */
+
+.buy-card {
+    float: right;
+    width: 20vw;
+    margin: 35px;
+    height: 60vh;
+    overflow: scroll;
+}
+
+.buy-list {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.buy-list-item {
+    height: fit-content;
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 2px;
+    z-index: 2;
+}
+
+.buy-list-text {
+    font-family: 'Roboto', sans-serif;
+}
+
+.buy-list-btn {
+    width: fit-content;
+    position: absolute;
+    right: 20px;
+}
+
+.buy-list-btn-label {
+    font-size: 13px;
+}
