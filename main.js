@@ -16,7 +16,7 @@ function first_start()
 function Game()
 {
 	// Data
-	this.clicks = 115;
+	this.clicks = 0;
 	this.total_cps = [];
 	this.button_click_amount = 1;
 	
