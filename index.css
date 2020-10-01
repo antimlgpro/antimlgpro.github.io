@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+.main_div {
+	/*border: 1px solid black;*/
+	display: flex;
+	justify-content: space-between;
+}
+
+#melker {
+	width: 200px;
+	height: 200px;
+	border-radius: 2px;
+	background: #d597ce;
+	border: 2px solid #f5b0cb;
+	outline: none;
+}
+#melker:active {
+	background: rgb(213, 151, 206, 0.6);
+}
+
+body {
+	background: #39375b;
+	overflow: hidden;
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+p {
+	color: #FFFFFF;
+}
+
+.buy_btn {
+	width: 250px;
+	height: 70px;
+	border-radius: 2px;
+	background: #d597ce;
+	border: 2px solid #f5b0cb;
+	outline: none;
+	text-align: left;
+	font-family: 'Roboto', sans-serif;
+}
+.buy_btn:active {
+	background: rgb(213, 151, 206, 0.6);
+}
+
+#buy_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	border-radius: 5px;
+	width: 260px;
+}
+
+#scrollDiv {
+	height:90vh;
+	overflow: auto;
+	border-radius: 5px;
+	background: #745c97;
+}
+
+#upgrade_container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: right;
+	width: 300px;
+	height: max-content;
+	background: #745c97;
+}
+.upgrade_btn {
+	border: 2px solid #f5b0cb;
+	outline: none;
+	text-align: left;
+	border-left: transparent;
+	background: #d597ce;
+	width: 33.333%;
+}
+.upgrade_btn:active {
+	background: rgb(213, 151, 206, 0.6);
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
